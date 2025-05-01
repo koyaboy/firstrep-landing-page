@@ -1,0 +1,32 @@
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+  width: max-content;
+}
+
+.animate-scroll-md {
+  animation: scroll-md 15s linear infinite;
+  width: max-content;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-md {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll:hover,
+.animate-scroll-md:hover {
+  animation-play-state: paused;
+}

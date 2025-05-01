@@ -21,6 +21,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import AutoCarousel from "@/components/auto-carousel/page";
+import "../styles/styles.css";
+import TestimonialSlideshow from "@/components/testimonial-slideshow/page";
 
 export default function LandingPage() {
   const heroImages = [
@@ -85,12 +87,12 @@ export default function LandingPage() {
             <span className="text-xl font-bold">FirstRep</span>
           </div>
           <nav className="hidden md:flex items-center gap-8">
-            <Link
+            {/* <Link
               href="#features"
               className="text-sm text-gray-300 hover:text-white transition-colors"
             >
               Features
-            </Link>
+            </Link> */}
             <Link
               href="#how-it-works"
               className="text-sm text-gray-300 hover:text-white transition-colors"
@@ -122,7 +124,7 @@ export default function LandingPage() {
               target="_blank"
               className="hidden md:inline-flex h-10 px-4 py-2 bg-[#ff6b53] text-white rounded-md text-sm font-medium transition-all hover:bg-[#ff6b53]/90 hover:scale-105"
             >
-              Get Early Access
+              Join Early Beta
             </Link>
             <button className="md:hidden text-gray-300">
               <svg
@@ -166,7 +168,7 @@ export default function LandingPage() {
                   target="_blank"
                   className="inline-flex h-12 px-6 items-center justify-center bg-[#ff6b53] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#ff6b53]/90 hover:scale-105 hover:shadow-lg hover:shadow-[#ff6b53]/20"
                 >
-                  Get Early Access
+                  Join Early Beta
                 </Link>
                 <Link
                   href="#how-it-works"
@@ -259,11 +261,11 @@ export default function LandingPage() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-16 md:py-24 animate-fade-in">
+      <section id="how-it-works" className="py-16 md:py-24 animate-fade-in">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16 animate-slide-up">
             <div className="inline-block px-3 py-1 bg-[#ff6b53]/20 text-[#ff6b53] rounded-full text-sm font-medium mb-4">
-              FEATURES
+              HOW IT WORKS
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Built for Accountability, Not Just Workouts
@@ -421,7 +423,7 @@ export default function LandingPage() {
       </section>
 
       {/* How It Works */}
-      <section
+      {/* <section
         id="how-it-works"
         className="py-16 md:py-24 bg-[#242935] animate-fade-in"
       >
@@ -511,22 +513,29 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Founder Story */}
       <section className="py-16 md:py-24 animate-fade-in">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-[#242935] p-8 md:p-12 rounded-2xl transform transition-all duration-700 hover:shadow-2xl animate-slide-up">
             <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="w-32 h-32 rounded-full bg-[#ff6b53]/20 flex items-center justify-center flex-shrink-0 animate-pulse">
-                <Heart className="h-12 w-12 text-[#ff6b53]" />
+              <div className="w-40 h-40 rounded-full bg-[#ff6b53]/20 flex items-center justify-center flex-shrink-0">
+                {/* <Heart className="h-12 w-12 text-[#ff6b53]" /> */}
+                <Image
+                  src="/images/logo-koya.jpg"
+                  alt="logo-koya"
+                  width={160}
+                  height={160}
+                  className="rounded-full"
+                />
               </div>
               <div>
                 <div className="inline-block px-3 py-1 bg-[#ff6b53]/20 text-[#ff6b53] rounded-full text-sm font-medium mb-4">
-                  OUR STORY
+                  MY STORY
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                  Why We Created FirstRep
+                  Why I Created FirstRep
                 </h2>
                 <p className="text-gray-300 mb-4">
                   "After years of starting and stopping my fitness journey, I
@@ -535,7 +544,9 @@ export default function LandingPage() {
                   This isn't just about getting fit; it's about becoming the
                   kind of person who follows through on commitments."
                 </p>
-                <p className="text-[#ff6b53] font-medium">— FirstRep Founder</p>
+                <p className="text-[#ff6b53] font-medium">
+                  — Koya, FirstRep Founder
+                </p>
               </div>
             </div>
           </div>
@@ -543,7 +554,7 @@ export default function LandingPage() {
       </section>
 
       {/* Testimonials */}
-      <section
+      {/* <section
         id="testimonials"
         className="py-16 md:py-24 bg-[#242935] animate-fade-in"
       >
@@ -621,6 +632,27 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
+      </section> */}
+      <section
+        id="testimonials"
+        className="py-16 md:py-24 bg-[#242935] animate-fade-in"
+      >
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center mb-16 animate-slide-up">
+            <div className="inline-block px-3 py-1 bg-[#ff6b53]/20 text-[#ff6b53] rounded-full text-sm font-medium mb-4">
+              TESTIMONIALS
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              What Our Users Are Saying
+            </h2>
+            <p className="text-lg text-gray-300">
+              FirstRep is helping people build lasting fitness habits and
+              transform their lives.
+            </p>
+          </div>
+
+          <TestimonialSlideshow />
+        </div>
       </section>
 
       {/* Pricing */}
@@ -638,8 +670,9 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div
+          {/* <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"> */}
+          <div className="flex justify-center max-w-lg mx-auto">
+            {/* <div
               className="bg-[#242935] p-8 rounded-xl border border-[#333] transform transition-all duration-500 hover:scale-105 hover:shadow-xl animate-slide-up"
               style={{ animationDelay: "100ms" }}
             >
@@ -679,7 +712,7 @@ export default function LandingPage() {
               >
                 Get Started
               </Link>
-            </div>
+            </div> */}
             <div
               className="bg-[#242935] p-8 rounded-xl border border-[#ff6b53] transform transition-all duration-500 hover:scale-105 hover:shadow-xl animate-slide-up"
               style={{ animationDelay: "200ms" }}
@@ -688,15 +721,17 @@ export default function LandingPage() {
                 <div className="inline-block px-3 py-1 bg-[#ff6b53] text-white rounded-full text-sm font-medium mb-2">
                   RECOMMENDED
                 </div>
-                <h3 className="text-xl font-bold mb-2">Premium</h3>
+                <h3 className="text-xl font-bold mb-2">Premium (Beta)</h3>
                 <p className="text-3xl font-bold mb-4">
-                  $9.99
+                  {/* $9.99 */}$0
                   <span className="text-gray-400 text-lg font-normal">
                     /month
                   </span>
                 </p>
                 <p className="text-gray-300">
-                  Everything you need for maximum accountability.
+                  {/* Everything you need for maximum accountability. */}
+                  Try all premium features at no cost while we’re in beta. Help
+                  shape the future of FirstRep.
                 </p>
               </div>
               <ul className="space-y-3 mb-8">
@@ -726,7 +761,7 @@ export default function LandingPage() {
                 target="_blank"
                 className="inline-flex w-full h-12 items-center justify-center bg-[#ff6b53] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#ff6b53]/90 hover:scale-105 hover:shadow-lg hover:shadow-[#ff6b53]/20"
               >
-                Get Early Access
+                Join Early Beta
               </Link>
             </div>
           </div>
@@ -844,7 +879,7 @@ export default function LandingPage() {
               target="_blank"
               className="inline-flex h-14 px-8 items-center justify-center bg-[#1a1f2e] text-white rounded-md text-lg font-medium transition-all duration-300 hover:bg-[#1a1f2e]/90 hover:scale-105 hover:shadow-lg"
             >
-              Get Early Access <ArrowRight className="ml-2 h-5 w-5" />
+              Join Early Beta <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
             <p className="text-sm mt-4">
               By signing up, you agree to our Terms of Service and Privacy
