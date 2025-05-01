@@ -20,9 +20,61 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import HeroCarousel from "@/components/hero-carousel/page";
+import AutoCarousel from "@/components/auto-carousel/page";
 
 export default function LandingPage() {
+  const heroImages = [
+    {
+      src: "/images/test-2.jpg",
+      alt: "Person lifting weights",
+    },
+    {
+      src: "/images/test-6.jpg",
+      alt: "Person running outdoors",
+    },
+    {
+      src: "/images/test-3.jpg",
+      alt: "Person doing yoga",
+    },
+    {
+      src: "/images/test-1.jpg",
+      alt: "Person running outdoors",
+    },
+  ];
+
+  const buddyMockupImages = [
+    {
+      src: "/images/buddies-mockup/buddy-page.png",
+      alt: "Person lifting weights",
+    },
+    {
+      src: "/images/buddies-mockup/buddy-nearby.png",
+      alt: "Person lifting weights",
+    },
+    {
+      src: "/images/buddies-mockup/buddy-results.png",
+      alt: "Person lifting weights",
+    },
+  ];
+
+  const progressMockupImages = [
+    {
+      src: "/images/progress-mockups/dashboard.png",
+      alt: "Person lifting weights",
+    },
+    {
+      src: "/images/progress-mockups/calendar.png",
+      alt: "Person lifting weights",
+    },
+    {
+      src: "/images/progress-mockups/reminders.png",
+      alt: "Person lifting weights",
+    },
+    {
+      src: "/images/progress-mockups/progress-photos.png",
+      alt: "Person lifting weights",
+    },
+  ];
   return (
     <div className="min-h-screen bg-[#1a1f2e] text-white">
       {/* Header */}
@@ -100,7 +152,7 @@ export default function LandingPage() {
             <div className="space-y-6 animate-slide-up">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 Fitness is about{" "}
-                <span className="text-[#ff6b53]">consistency</span>, not
+                <span className="text-[#ff6b53]">accountability</span>, not
                 intensity
               </h1>
               <p className="text-lg text-gray-300 md:text-xl">
@@ -144,7 +196,7 @@ export default function LandingPage() {
                   />
                 </div>
               </div> */}
-              <HeroCarousel />
+              <AutoCarousel images={heroImages} type="hero" />
             </div>
           </div>
         </div>
@@ -311,48 +363,14 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-            <div className="order-1 md:order-2 relative rounded-xl overflow-hidden border border-[#242935] shadow-2xl animate-slide-in-right">
-              <Image
-                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop"
-                alt="Workout buddies exercising together"
-                width={650}
-                height={400}
-                className="w-full h-auto object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#1a1f2e] to-transparent">
-                <div className="bg-[#242935]/80 backdrop-blur-sm rounded-xl p-4 border border-[#333] transform transition-all duration-500 hover:scale-[1.02]">
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-04-30%20at%2018.10.55-PeaCLvUqsj1iSjrW9NwMypwGbgWDSQ.png"
-                    alt="FirstRep Buddy System"
-                    width={650}
-                    height={400}
-                    className="w-full h-auto rounded-lg"
-                  />
-                </div>
-              </div>
+            <div className="order-1 md:order-2 relative rounded-xl overflow-hidden h-[750px] flex justify-center animate-slide-in-right">
+              <AutoCarousel images={buddyMockupImages} type="mockup" />
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="relative rounded-xl overflow-hidden border border-[#242935] shadow-2xl animate-slide-in-left">
-              <Image
-                src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?q=80&w=2070&auto=format&fit=crop"
-                alt="Person tracking fitness progress"
-                width={650}
-                height={400}
-                className="w-full h-auto object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#1a1f2e] to-transparent">
-                <div className="bg-[#242935]/80 backdrop-blur-sm rounded-xl p-4 border border-[#333] transform transition-all duration-500 hover:scale-[1.02]">
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-04-30%20at%2018.11.28-5DuD85baYA75GRk9jyURfsZ0BRQudZ.png"
-                    alt="FirstRep Progress Tracking"
-                    width={650}
-                    height={400}
-                    className="w-full h-auto rounded-lg"
-                  />
-                </div>
-              </div>
+          <div className="grid md:grid-cols-2 gap-16 items-center h-[750px]">
+            <div className="relative rounded-xl overflow-hidden h-full flex justify-center shadow-sm animate-slide-in-left">
+              <AutoCarousel images={progressMockupImages} type="mockup" />
             </div>
             <div className="animate-slide-up">
               <div className="space-y-8">

@@ -1,28 +1,14 @@
-// src/components/HeroCarousel.jsx
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
-const HeroCarousel = () => {
-  const images = [
-    {
-      src: "/images/test-2.jpg",
-      alt: "Person lifting weights",
-    },
-    {
-      src: "/images/test-6.jpg",
-      alt: "Person running outdoors",
-    },
-    {
-      src: "/images/test-3.jpg",
-      alt: "Person doing yoga",
-    },
-    {
-      src: "/images/test-1.jpg",
-      alt: "Person running outdoors",
-    },
-  ];
+type AutoCarouselProps = {
+  images: { src: string; alt: string }[]; // Array of images passed as props
+  type: "mockup" | "hero"; // Type to determine layout style
+};
 
+const AutoCarousel: React.FC<AutoCarouselProps> = ({ images, type }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -32,8 +18,14 @@ const HeroCarousel = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
+  // Set styles based on type (mockup or hero)
+  const containerStyles =
+    type === "mockup"
+      ? "relative w-full max-w-[400px] h-full aspect-[9/16] rounded-xl"
+      : "relative w-full max-w-[700px] h-[450px] overflow-hidden rounded-lg";
+
   return (
-    <div className="relative w-full max-w-[700px] h-[450px] overflow-hidden rounded-lg">
+    <div className={containerStyles}>
       {images.map((image, index) => (
         <div
           key={index}
@@ -41,9 +33,11 @@ const HeroCarousel = () => {
             index === currentSlide ? "opacity-100" : "opacity-0"
           }`}
         >
-          <img
+          <Image
             src={image.src}
             alt={image.alt}
+            width={700} // Ensure the width is specified for optimization
+            height={450} // Same for height
             className="w-full h-full object-cover"
           />
         </div>
@@ -52,4 +46,4 @@ const HeroCarousel = () => {
   );
 };
 
-export default HeroCarousel;
+export default AutoCarousel;
