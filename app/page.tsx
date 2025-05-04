@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -13,6 +15,8 @@ import {
   ThumbsUp,
   Dumbbell,
   FileText,
+  X,
+  Menu,
 } from "lucide-react";
 import {
   Accordion,
@@ -23,6 +27,7 @@ import {
 import AutoCarousel from "@/components/auto-carousel/page";
 import "../styles/styles.css";
 import TestimonialSlideshow from "@/components/testimonial-slideshow/page";
+import { useState } from "react";
 
 export default function LandingPage() {
   const heroImages = [
@@ -81,6 +86,65 @@ export default function LandingPage() {
       alt: "Person lifting weights",
     },
   ];
+
+  function MobileMenu() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+      <div className="md:hidden">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="text-gray-300 p-2 focus:outline-none"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {isOpen && (
+          <div className="absolute top-full left-0 right-0 bg-[#1a1f2e] border-b border-[#242935] shadow-lg animate-slide-down">
+            <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+              <Link
+                href="#how-it-works"
+                className="text-sm text-gray-300 hover:text-white transition-colors py-2 border-b border-[#242935]"
+                onClick={() => setIsOpen(false)}
+              >
+                How It Works
+              </Link>
+              <Link
+                href="#testimonials"
+                className="text-sm text-gray-300 hover:text-white transition-colors py-2 border-b border-[#242935]"
+                onClick={() => setIsOpen(false)}
+              >
+                Testimonials
+              </Link>
+              <Link
+                href="#pricing"
+                className="text-sm text-gray-300 hover:text-white transition-colors py-2 border-b border-[#242935]"
+                onClick={() => setIsOpen(false)}
+              >
+                Pricing
+              </Link>
+              <Link
+                href="#faq"
+                className="text-sm text-gray-300 hover:text-white transition-colors py-2 border-b border-[#242935]"
+                onClick={() => setIsOpen(false)}
+              >
+                FAQ
+              </Link>
+              <Link
+                href="https://koya.kit.com/55fd8e85d2"
+                className="inline-flex h-10 px-4 py-2 bg-[#ff6b53] text-white rounded-md text-sm font-medium transition-all hover:bg-[#ff6b53]/90 justify-center items-center mt-2"
+                onClick={() => setIsOpen(false)}
+              >
+                Join Early Beta
+              </Link>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#1a1f2e] text-white">
       {/* Header */}
@@ -130,7 +194,7 @@ export default function LandingPage() {
             >
               Join Early Beta
             </Link>
-            <button className="md:hidden text-gray-300">
+            {/* <button className="md:hidden text-gray-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -146,7 +210,8 @@ export default function LandingPage() {
                 <line x1="4" x2="20" y1="6" y2="6" />
                 <line x1="4" x2="20" y1="18" y2="18" />
               </svg>
-            </button>
+            </button> */}
+            <MobileMenu />
           </div>
         </div>
       </header>
