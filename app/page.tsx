@@ -31,11 +31,15 @@ export default function LandingPage() {
       alt: "Workout partners",
     },
     {
-      src: "/images/hero-6.jpg",
+      src: "/images/hero-4.jpg",
       alt: "Workout partners",
     },
     {
-      src: "/images/hero-4.jpg",
+      src: "/images/hero-3.jpg",
+      alt: "Workout partners",
+    },
+    {
+      src: "/images/hero-5.jpg",
       alt: "Workout Partners",
     },
     {
@@ -370,8 +374,11 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-16 items-center h-[750px]">
-            <div className="relative rounded-xl overflow-hidden h-full flex justify-center shadow-sm animate-slide-in-left">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            {/* <div className="relative rounded-xl overflow-hidden h-full flex justify-center shadow-sm animate-slide-in-left">
+              <AutoCarousel images={progressMockupImages} type="mockup" />
+            </div> */}
+            <div className="relative rounded-xl overflow-hidden h-[750p] flex justify-center animate-slide-in-left">
               <AutoCarousel images={progressMockupImages} type="mockup" />
             </div>
             <div className="animate-slide-up">
@@ -789,7 +796,7 @@ export default function LandingPage() {
                 value="item-1"
                 className="border border-[#333] rounded-lg overflow-hidden transform transition-all duration-300 hover:border-[#ff6b53]/50"
               >
-                <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-[#1a1f2e]/50">
+                <AccordionTrigger className="px-6 py-4 text-left hover:no-underline hover:bg-[#1a1f2e]/50">
                   Is FirstRep only for beginners?
                 </AccordionTrigger>
                 <AccordionContent className="px-6 py-4 bg-[#1a1f2e]/30 text-gray-300">
@@ -804,7 +811,7 @@ export default function LandingPage() {
                 value="item-2"
                 className="border border-[#333] rounded-lg overflow-hidden transform transition-all duration-300 hover:border-[#ff6b53]/50"
               >
-                <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-[#1a1f2e]/50">
+                <AccordionTrigger className="px-6 py-4 text-left hover:no-underline hover:bg-[#1a1f2e]/50">
                   Does FirstRep provide workout plans?
                 </AccordionTrigger>
                 <AccordionContent className="px-6 py-4 bg-[#1a1f2e]/30 text-gray-300">
@@ -819,7 +826,7 @@ export default function LandingPage() {
                 value="item-3"
                 className="border border-[#333] rounded-lg overflow-hidden transform transition-all duration-300 hover:border-[#ff6b53]/50"
               >
-                <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-[#1a1f2e]/50">
+                <AccordionTrigger className="px-6 py-4 text-left hover:no-underline hover:bg-[#1a1f2e]/50">
                   How does the buddy system work?
                 </AccordionTrigger>
                 <AccordionContent className="px-6 py-4 bg-[#1a1f2e]/30 text-gray-300">
@@ -834,7 +841,7 @@ export default function LandingPage() {
                 value="item-4"
                 className="border border-[#333] rounded-lg overflow-hidden transform transition-all duration-300 hover:border-[#ff6b53]/50"
               >
-                <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-[#1a1f2e]/50">
+                <AccordionTrigger className="px-6 py-4 text-left hover:no-underline hover:bg-[#1a1f2e]/50">
                   Can I cancel my subscription anytime?
                 </AccordionTrigger>
                 <AccordionContent className="px-6 py-4 bg-[#1a1f2e]/30 text-gray-300">
@@ -848,7 +855,7 @@ export default function LandingPage() {
                 value="item-5"
                 className="border border-[#333] rounded-lg overflow-hidden transform transition-all duration-300 hover:border-[#ff6b53]/50"
               >
-                <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-[#1a1f2e]/50">
+                <AccordionTrigger className="px-6 py-4 text-left hover:no-underline hover:bg-[#1a1f2e]/50">
                   Is my data private?
                 </AccordionTrigger>
                 <AccordionContent className="px-6 py-4 bg-[#1a1f2e]/30 text-gray-300">
