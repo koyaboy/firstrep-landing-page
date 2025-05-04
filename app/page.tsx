@@ -378,7 +378,7 @@ export default function LandingPage() {
             {/* <div className="relative rounded-xl overflow-hidden h-full flex justify-center shadow-sm animate-slide-in-left">
               <AutoCarousel images={progressMockupImages} type="mockup" />
             </div> */}
-            <div className="relative rounded-xl overflow-hidden h-[750p] flex justify-center animate-slide-in-left">
+            <div className="relative rounded-xl overflow-hidden h-[750px] flex justify-center animate-slide-in-left">
               <AutoCarousel images={progressMockupImages} type="mockup" />
             </div>
             <div className="animate-slide-up">
