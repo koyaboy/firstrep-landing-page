@@ -136,7 +136,7 @@ export default function LandingPage() {
                 className="inline-flex h-10 px-4 py-2 bg-[#ff6b53] text-white rounded-md text-sm font-medium transition-all hover:bg-[#ff6b53]/90 justify-center items-center mt-2"
                 onClick={() => setIsOpen(false)}
               >
-                Join Early Beta
+                Get Early Access
               </Link>
             </div>
           </div>
@@ -192,7 +192,7 @@ export default function LandingPage() {
               target="_blank"
               className="hidden md:inline-flex h-10 px-4 py-2 bg-[#ff6b53] text-white rounded-md text-sm font-medium transition-all hover:bg-[#ff6b53]/90 hover:scale-105"
             >
-              Join Early Beta
+              Get Early Access
             </Link>
             {/* <button className="md:hidden text-gray-300">
               <svg
@@ -237,7 +237,7 @@ export default function LandingPage() {
                   target="_blank"
                   className="inline-flex h-12 px-6 items-center justify-center bg-[#ff6b53] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#ff6b53]/90 hover:scale-105 hover:shadow-lg hover:shadow-[#ff6b53]/20"
                 >
-                  Join Early Beta
+                  Get Early Access
                 </Link>
                 <Link
                   href="#how-it-works"
@@ -833,7 +833,7 @@ export default function LandingPage() {
                 target="_blank"
                 className="inline-flex w-full h-12 items-center justify-center bg-[#ff6b53] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#ff6b53]/90 hover:scale-105 hover:shadow-lg hover:shadow-[#ff6b53]/20"
               >
-                Join Early Beta
+                Get Early Access
               </Link>
             </div>
           </div>
@@ -951,7 +951,7 @@ export default function LandingPage() {
               target="_blank"
               className="inline-flex h-14 px-8 items-center justify-center bg-[#1a1f2e] text-white rounded-md text-lg font-medium transition-all duration-300 hover:bg-[#1a1f2e]/90 hover:scale-105 hover:shadow-lg"
             >
-              Join Early Beta <ArrowRight className="ml-2 h-5 w-5" />
+              Get Early Access <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
             <p className="text-sm mt-4">
               By signing up, you agree to our Terms of Service and Privacy
