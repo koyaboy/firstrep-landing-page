@@ -27,20 +27,20 @@ import TestimonialSlideshow from "@/components/testimonial-slideshow/page";
 export default function LandingPage() {
   const heroImages = [
     {
-      src: "/images/test-2.jpg",
-      alt: "Person lifting weights",
+      src: "/images/hero-2.jpg",
+      alt: "Workout partners",
     },
     {
-      src: "/images/test-6.jpg",
-      alt: "Person running outdoors",
+      src: "/images/hero-6.jpg",
+      alt: "Workout partners",
     },
     {
-      src: "/images/test-3.jpg",
-      alt: "Person doing yoga",
+      src: "/images/hero-4.jpg",
+      alt: "Workout Partners",
     },
     {
-      src: "/images/test-1.jpg",
-      alt: "Person running outdoors",
+      src: "/images/hero-1.jpg",
+      alt: "Workout Partners",
     },
   ];
 
