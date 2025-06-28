@@ -132,11 +132,21 @@ export default function LandingPage() {
                 FAQ
               </Link>
               <Link
-                href="https://koya.kit.com/55fd8e85d2"
+                href="https://app.firstrep.xyz"
+                className="inline-flex h-10 px-4 py-2 items-center justify-center bg-[#242935] text-white rounded-md text-sm font-medium transition-all duration-300 hover:bg-[#242935]/90 hover:scale-105"
+                onClick={() => setIsOpen(false)}
+                target="_blank"
+              >
+                Try Web App
+              </Link>
+
+              <Link
+                href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
                 className="inline-flex h-10 px-4 py-2 bg-[#ff6b53] text-white rounded-md text-sm font-medium transition-all hover:bg-[#ff6b53]/90 justify-center items-center mt-2"
                 onClick={() => setIsOpen(false)}
+                target="_blank"
               >
-                Get Early Access
+                Test on Android (Beta)
               </Link>
             </div>
           </div>
@@ -188,29 +198,20 @@ export default function LandingPage() {
           </nav>
           <div className="flex items-center gap-4">
             <Link
-              href="https://koya.kit.com/55fd8e85d2"
+              href="https://app.firstrep.xyz"
+              target="_blank"
+              className="hidden md:inline-flex h-10 px-4 py-2 bg-[#242935] text-white rounded-md text-sm font-medium transition-all hover:bg-[#242935]/90 hover:scale-105"
+            >
+              Try Web App
+            </Link>
+            <Link
+              href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
               target="_blank"
               className="hidden md:inline-flex h-10 px-4 py-2 bg-[#ff6b53] text-white rounded-md text-sm font-medium transition-all hover:bg-[#ff6b53]/90 hover:scale-105"
             >
-              Get Early Access
+              Test on Android (Beta)
             </Link>
-            {/* <button className="md:hidden text-gray-300">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="4" x2="20" y1="12" y2="12" />
-                <line x1="4" x2="20" y1="6" y2="6" />
-                <line x1="4" x2="20" y1="18" y2="18" />
-              </svg>
-            </button> */}
+
             <MobileMenu />
           </div>
         </div>
@@ -233,17 +234,18 @@ export default function LandingPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href="https://koya.kit.com/55fd8e85d2"
+                  href="https://app.firstrep.xyz"
                   target="_blank"
                   className="inline-flex h-12 px-6 items-center justify-center bg-[#ff6b53] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#ff6b53]/90 hover:scale-105 hover:shadow-lg hover:shadow-[#ff6b53]/20"
                 >
-                  Get Early Access
+                  Try Web App
                 </Link>
                 <Link
-                  href="#how-it-works"
+                  href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
+                  target="_blank"
                   className="inline-flex h-12 px-6 items-center justify-center bg-[#242935] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#242935]/90 hover:scale-105"
                 >
-                  Learn More
+                  Test on Android (Beta)
                 </Link>
               </div>
             </div>
@@ -828,13 +830,22 @@ export default function LandingPage() {
                   <span>Premium workout templates</span>
                 </li>
               </ul>
-              <Link
-                href="https://koya.kit.com/55fd8e85d2"
-                target="_blank"
-                className="inline-flex w-full h-12 items-center justify-center bg-[#ff6b53] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#ff6b53]/90 hover:scale-105 hover:shadow-lg hover:shadow-[#ff6b53]/20"
-              >
-                Get Early Access
-              </Link>
+              <div className="flex flex-col gap-3">
+                <Link
+                  href="https://app.firstrep.xyz"
+                  target="_blank"
+                  className="inline-flex w-full h-12 items-center justify-center bg-[#ff6b53] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#ff6b53]/90 hover:scale-105 hover:shadow-lg hover:shadow-[#ff6b53]/20"
+                >
+                  Try Web App
+                </Link>
+                <Link
+                  href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
+                  target="_blank"
+                  className="inline-flex w-full h-12 items-center justify-center bg-[#1a1f2e] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#1a1f2e]/90 hover:scale-105"
+                >
+                  Test on Android (Beta)
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -946,13 +957,22 @@ export default function LandingPage() {
               Join FirstRep today and transform your approach to fitness through
               accountability, not just workouts.
             </p>
-            <Link
-              href="https://koya.kit.com/55fd8e85d2"
-              target="_blank"
-              className="inline-flex h-14 px-8 items-center justify-center bg-[#1a1f2e] text-white rounded-md text-lg font-medium transition-all duration-300 hover:bg-[#1a1f2e]/90 hover:scale-105 hover:shadow-lg"
-            >
-              Get Early Access <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
+            <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-center">
+              <Link
+                href="https://app.firstrep.xyz"
+                target="_blank"
+                className="inline-flex h-14 px-8 items-center justify-center bg-[#1a1f2e] text-white rounded-md text-lg font-medium transition-all duration-300 hover:bg-[#1a1f2e]/90 hover:scale-105 hover:shadow-lg"
+              >
+                Try Web App <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+              <Link
+                href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
+                target="_blank"
+                className="inline-flex h-14 px-8 items-center justify-center bg-[#1a1f2e] text-white rounded-md text-lg font-medium transition-all duration-300 hover:bg-[#1a1f2e]/90 hover:scale-105 hover:shadow-lg"
+              >
+                Test on Android (Beta) <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </div>
             <p className="text-sm mt-4">
               By signing up, you agree to our Terms of Service and Privacy
               Policy.
