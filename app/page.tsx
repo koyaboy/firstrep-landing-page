@@ -17,6 +17,8 @@ import {
   FileText,
   X,
   Menu,
+  Smartphone,
+  Globe,
 } from "lucide-react";
 import {
   Accordion,
@@ -131,23 +133,42 @@ export default function LandingPage() {
               >
                 FAQ
               </Link>
-              <Link
-                href="https://app.firstrep.xyz"
-                className="inline-flex h-10 px-4 py-2 items-center justify-center bg-[#242935] text-white rounded-md text-sm font-medium transition-all duration-300 hover:bg-[#242935]/90 hover:scale-105"
-                onClick={() => setIsOpen(false)}
-                target="_blank"
-              >
-                Try Web App
-              </Link>
-
-              <Link
-                href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
-                className="inline-flex h-10 px-4 py-2 bg-[#ff6b53] text-white rounded-md text-sm font-medium transition-all hover:bg-[#ff6b53]/90 justify-center items-center mt-2"
-                onClick={() => setIsOpen(false)}
-                target="_blank"
-              >
-                Test on Android (Beta)
-              </Link>
+              <div className="mt-4">
+                <p className="text-xs text-gray-400 mb-3 text-center">
+                  Try FirstRep
+                </p>
+                <div className="flex flex-col gap-2 flex-wrap">
+                  <Link
+                    href="https://app.firstrep.xyz"
+                    target="_blank"
+                    className="inline-flex h-10 px-4 py-2 bg-[#ff6b53] text-white rounded-md text-sm font-medium transition-all hover:bg-[#ff6b53]/90 justify-center items-center"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <Globe className="w-4 h-4 mr-2" />
+                    Web App
+                  </Link>
+                  <div className="grid grid-cols-2 gap-2">
+                    <Link
+                      href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
+                      target="_blank"
+                      className="inline-flex h-10 px-3 py-2 bg-[#242935] text-white rounded-md text-sm font-medium transition-all hover:bg-[#242935]/90 justify-center items-center"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <Smartphone className="w-4 h-4 mr-1" />
+                      Android
+                    </Link>
+                    <Link
+                      href="https://testflight.apple.com/join/vGAsKpGg"
+                      target="_blank"
+                      className="inline-flex h-10 px-3 py-2 bg-[#242935] text-white rounded-md text-sm font-medium transition-all hover:bg-[#242935]/90 justify-center items-center"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <Smartphone className="w-4 h-4 mr-1" />
+                      iOS
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         )}
@@ -197,21 +218,32 @@ export default function LandingPage() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Link
-              href="https://app.firstrep.xyz"
-              target="_blank"
-              className="hidden md:inline-flex h-10 px-4 py-2 bg-[#242935] text-white rounded-md text-sm font-medium transition-all hover:bg-[#242935]/90 hover:scale-105"
-            >
-              Try Web App
-            </Link>
-            <Link
-              href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
-              target="_blank"
-              className="hidden md:inline-flex h-10 px-4 py-2 bg-[#ff6b53] text-white rounded-md text-sm font-medium transition-all hover:bg-[#ff6b53]/90 hover:scale-105"
-            >
-              Test on Android (Beta)
-            </Link>
-
+            <div className="hidden lg:flex items-center gap-2">
+              <Link
+                href="https://app.firstrep.xyz"
+                target="_blank"
+                className="inline-flex h-9 px-4 py-2 bg-[#ff6b53] text-white rounded-md text-sm font-medium transition-all hover:bg-[#ff6b53]/90 hover:scale-105 items-center"
+              >
+                <Globe className="w-4 h-4 mr-2" />
+                Web App
+              </Link>
+              <Link
+                href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
+                target="_blank"
+                className="inline-flex h-9 px-3 py-2 bg-[#242935] text-white rounded-md text-sm font-medium transition-all hover:bg-[#242935]/90 hover:scale-105 items-center"
+              >
+                <Smartphone className="w-4 h-4 mr-1" />
+                Android
+              </Link>
+              <Link
+                href="https://testflight.apple.com/join/vGAsKpGg"
+                target="_blank"
+                className="inline-flex h-9 px-3 py-2 bg-[#242935] text-white rounded-md text-sm font-medium transition-all hover:bg-[#242935]/90 hover:scale-105 items-center"
+              >
+                <Smartphone className="w-4 h-4 mr-1" />
+                iOS
+              </Link>
+            </div>
             <MobileMenu />
           </div>
         </div>
@@ -232,21 +264,38 @@ export default function LandingPage() {
                 lasting fitness habits through social connection and
                 accountability, not just workouts.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="https://app.firstrep.xyz"
-                  target="_blank"
-                  className="inline-flex h-12 px-6 items-center justify-center bg-[#ff6b53] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#ff6b53]/90 hover:scale-105 hover:shadow-lg hover:shadow-[#ff6b53]/20"
-                >
-                  Try Web App
-                </Link>
-                <Link
-                  href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
-                  target="_blank"
-                  className="inline-flex h-12 px-6 items-center justify-center bg-[#242935] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#242935]/90 hover:scale-105"
-                >
-                  Test on Android (Beta)
-                </Link>
+              <div className="space-y-4">
+                <p className="text-sm text-gray-400 font-medium">
+                  Choose your platform:
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 flex-wrap">
+                  <Link
+                    href="https://app.firstrep.xyz"
+                    target="_blank"
+                    className="inline-flex h-12 px-6 items-center justify-center bg-[#ff6b53] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#ff6b53]/90 hover:scale-105 hover:shadow-lg hover:shadow-[#ff6b53]/20"
+                  >
+                    <Globe className="w-5 h-5 mr-2" />
+                    Try Web App
+                  </Link>
+                  <div className="flex gap-3">
+                    <Link
+                      href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
+                      target="_blank"
+                      className="inline-flex h-12 px-4 items-center justify-center bg-[#242935] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#242935]/90 hover:scale-105 flex-1 sm:flex-none"
+                    >
+                      <Smartphone className="w-5 h-5 mr-2" />
+                      Android Beta
+                    </Link>
+                    <Link
+                      href="https://testflight.apple.com/join/vGAsKpGg"
+                      target="_blank"
+                      className="inline-flex h-12 px-4 items-center justify-center bg-[#242935] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#242935]/90 hover:scale-105 flex-1 sm:flex-none"
+                    >
+                      <Smartphone className="w-5 h-5 mr-2" />
+                      iOS Beta
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="relative rounded-xl overflow-hidden border border-[#242935] shadow-2xl transform transition-all duration-700 hover:scale-[1.02] animate-slide-in-right">
@@ -830,21 +879,36 @@ export default function LandingPage() {
                   <span>Premium workout templates</span>
                 </li>
               </ul>
-              <div className="flex flex-col gap-3">
+              <div className="space-y-3">
+                <p className="text-xs text-gray-400 text-center">
+                  Available on:
+                </p>
                 <Link
                   href="https://app.firstrep.xyz"
                   target="_blank"
                   className="inline-flex w-full h-12 items-center justify-center bg-[#ff6b53] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#ff6b53]/90 hover:scale-105 hover:shadow-lg hover:shadow-[#ff6b53]/20"
                 >
-                  Try Web App
+                  <Globe className="w-4 h-4 mr-2" />
+                  Web App
                 </Link>
-                <Link
-                  href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
-                  target="_blank"
-                  className="inline-flex w-full h-12 items-center justify-center bg-[#1a1f2e] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#1a1f2e]/90 hover:scale-105"
-                >
-                  Test on Android (Beta)
-                </Link>
+                <div className="grid grid-cols-2 gap-2">
+                  <Link
+                    href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
+                    target="_blank"
+                    className="inline-flex h-10 items-center justify-center bg-[#1a1f2e] text-white rounded-md text-sm font-medium transition-all duration-300 hover:bg-[#1a1f2e]/90 hover:scale-105"
+                  >
+                    <Smartphone className="w-4 h-4 mr-1" />
+                    Android
+                  </Link>
+                  <Link
+                    href="https://testflight.apple.com/join/vGAsKpGg"
+                    target="_blank"
+                    className="inline-flex h-10 items-center justify-center bg-[#1a1f2e] text-white rounded-md text-sm font-medium transition-all duration-300 hover:bg-[#1a1f2e]/90 hover:scale-105"
+                  >
+                    <Smartphone className="w-4 h-4 mr-1" />
+                    iOS
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -957,21 +1021,33 @@ export default function LandingPage() {
               Join FirstRep today and transform your approach to fitness through
               accountability, not just workouts.
             </p>
-            <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-center">
+            <div className="space-y-4">
               <Link
                 href="https://app.firstrep.xyz"
                 target="_blank"
-                className="inline-flex h-14 px-8 items-center justify-center bg-[#1a1f2e] text-white rounded-md text-lg font-medium transition-all duration-300 hover:bg-[#1a1f2e]/90 hover:scale-105 hover:shadow-lg"
+                className="inline-flex h-14 px-8 items-center justify-center bg-[#1a1f2e] text-white rounded-md text-lg font-medium transition-all duration-300 hover:bg-[#1a1f2e]/90 hover:scale-105 hover:shadow-lg w-full sm:w-auto"
               >
+                <Globe className="w-5 h-5 mr-2" />
                 Try Web App <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
-              <Link
-                href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
-                target="_blank"
-                className="inline-flex h-14 px-8 items-center justify-center bg-[#1a1f2e] text-white rounded-md text-lg font-medium transition-all duration-300 hover:bg-[#1a1f2e]/90 hover:scale-105 hover:shadow-lg"
-              >
-                Test on Android (Beta) <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
+                  target="_blank"
+                  className="inline-flex h-12 px-6 items-center justify-center bg-[#242935] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#242935]/90 hover:scale-105 hover:shadow-lg"
+                >
+                  <Smartphone className="w-4 h-4 mr-2" />
+                  Test Android Beta
+                </Link>
+                <Link
+                  href="https://testflight.apple.com/join/vGAsKpGg"
+                  target="_blank"
+                  className="inline-flex h-12 px-6 items-center justify-center bg-[#242935] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#242935]/90 hover:scale-105 hover:shadow-lg"
+                >
+                  <Smartphone className="w-4 h-4 mr-2" />
+                  Test iOS Beta
+                </Link>
+              </div>
             </div>
             <p className="text-sm mt-4">
               By signing up, you agree to our Terms of Service and Privacy
