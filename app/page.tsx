@@ -986,9 +986,6 @@ export default function LandingPage() {
                 </AccordionTrigger>
                 <AccordionContent className="px-6 py-4 bg-[#1a1f2e]/30 text-gray-300">
                   Yes, you can cancel your Premium subscription at any time.
-                  Your benefits will continue until the end of your billing
-                  cycle, and you'll automatically be switched to the Free plan
-                  afterward.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem
@@ -1003,6 +1000,19 @@ export default function LandingPage() {
                   never shared without your consent. You have full control over
                   what information is visible to your workout buddies and what
                   remains private.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem
+                value="item-6"
+                className="border border-[#333] rounded-lg overflow-hidden transform transition-all duration-300 hover:border-[#ff6b53]/50"
+              >
+                <AccordionTrigger className="px-6 py-4 text-left hover:no-underline hover:bg-[#1a1f2e]/50">
+                  How can I contact support?
+                </AccordionTrigger>
+                <AccordionContent className="px-6 py-4 bg-[#1a1f2e]/30 text-gray-300">
+                  For bug reports, feature requests, or any support questions,
+                  email us at koya@firstrep.xyz or use the contact form in our
+                  mobile app.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -1050,8 +1060,9 @@ export default function LandingPage() {
               </div>
             </div>
             <p className="text-sm mt-4">
-              By signing up, you agree to our Terms of Service and Privacy
-              Policy.
+              By signing up, you agree to our{" "}
+              <Link href="/terms">Terms of Service</Link> and{" "}
+              <Link href="/privacy">Privacy Policy</Link>.
             </p>
           </div>
         </div>
@@ -1213,20 +1224,20 @@ export default function LandingPage() {
               <h4 className="font-bold mb-4">Legal</h4>
               <ul className="space-y-2">
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="/privacy"
                     className="text-gray-400 hover:text-white transition-colors duration-300"
                   >
                     Privacy Policy
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="/terms"
                     className="text-gray-400 hover:text-white transition-colors duration-300"
                   >
                     Terms of Service
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a
