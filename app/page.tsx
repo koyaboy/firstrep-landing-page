@@ -133,10 +133,10 @@ export default function LandingPage() {
               >
                 FAQ
               </Link>
-              <div className="mt-4">
+              {/* <div className="mt-4">
                 <p className="text-xs text-gray-400 mb-3 text-center">
                   Try FirstRep
-                </p>
+                </p> 
                 <div className="flex flex-col gap-2 flex-wrap">
                   <Link
                     href="https://app.firstrep.xyz"
@@ -167,7 +167,22 @@ export default function LandingPage() {
                       iOS
                     </Link>
                   </div>
-                </div>
+                </div> 
+               
+              </div> */}
+
+              <div className="mt-4">
+                <p className="text-xs text-gray-400 mb-3 text-center">
+                  Get Early Access
+                </p>
+                <Link
+                  href="https://koya.kit.com/bcca878a1d"
+                  target="_blank"
+                  className="inline-flex w-full h-10 px-4 py-2 bg-[#ff6b53] text-white rounded-md text-sm font-medium transition-all hover:bg-[#ff6b53]/90 justify-center items-center"
+                  onClick={() => setIsOpen(false)}
+                >
+                  🚀 Join Waitlist
+                </Link>
               </div>
             </div>
           </div>
@@ -217,7 +232,7 @@ export default function LandingPage() {
               FAQ
             </Link>
           </nav>
-          <div className="flex items-center gap-4">
+          {/* <div className="flex items-center gap-4">
             <div className="hidden lg:flex items-center gap-2">
               <Link
                 href="https://app.firstrep.xyz"
@@ -245,6 +260,19 @@ export default function LandingPage() {
               </Link>
             </div>
             <MobileMenu />
+          </div> */}
+
+          <div className="flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-2">
+              <Link
+                href="https://koya.kit.com/bcca878a1d"
+                target="_blank"
+                className="inline-flex h-9 px-6 py-2 bg-[#ff6b53] text-white rounded-md text-sm font-medium transition-all hover:bg-[#ff6b53]/90 hover:scale-105 items-center"
+              >
+                Join Waitlist
+              </Link>
+            </div>
+            <MobileMenu />
           </div>
         </div>
       </header>
@@ -264,7 +292,7 @@ export default function LandingPage() {
                 lasting fitness habits through social connection and
                 accountability, not just workouts.
               </p>
-              <div className="space-y-4">
+              {/* <div className="space-y-4">
                 <p className="text-sm text-gray-400 font-medium">
                   Choose your platform:
                 </p>
@@ -296,6 +324,21 @@ export default function LandingPage() {
                     </Link>
                   </div>
                 </div>
+              </div> */}
+              <div className="space-y-4">
+                <p className="text-sm text-gray-400 font-medium">
+                  Be among the first to experience FirstRep:
+                </p>
+                <Link
+                  href="https://koya.kit.com/bcca878a1d"
+                  target="_blank"
+                  className="inline-flex h-12 px-8 items-center justify-center bg-[#ff6b53] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#ff6b53]/90 hover:scale-105 hover:shadow-lg hover:shadow-[#ff6b53]/20"
+                >
+                  🚀 Join Waitlist - Get Early Access
+                </Link>
+                <p className="text-xs text-gray-400">
+                  Join 100+ people building better fitness habits
+                </p>
               </div>
             </div>
             <div className="relative rounded-xl overflow-hidden border border-[#242935] shadow-2xl transform transition-all duration-700 hover:scale-[1.02] animate-slide-in-right">
@@ -793,9 +836,8 @@ export default function LandingPage() {
             </p>
           </div>
 
-          {/* <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"> */}
-          <div className="flex justify-center max-w-lg mx-auto">
-            {/* <div
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div
               className="bg-[#242935] p-8 rounded-xl border border-[#333] transform transition-all duration-500 hover:scale-105 hover:shadow-xl animate-slide-up"
               style={{ animationDelay: "100ms" }}
             >
@@ -816,10 +858,10 @@ export default function LandingPage() {
                   <Check className="h-5 w-5 text-[#ff6b53] mr-2" />
                   <span>Basic progress tracking</span>
                 </li>
-                <li className="flex items-center">
+                {/* <li className="flex items-center">
                   <Check className="h-5 w-5 text-[#ff6b53] mr-2" />
                   <span>Connect with 2 workout buddies</span>
-                </li>
+                </li> */}
                 <li className="flex items-center">
                   <Check className="h-5 w-5 text-[#ff6b53] mr-2" />
                   <span>Daily check-ins</span>
@@ -829,13 +871,19 @@ export default function LandingPage() {
                   <span>Basic reminders</span>
                 </li>
               </ul>
-              <Link
-                href="https://firstrep.app/early-access"
-                className="inline-flex w-full h-12 items-center justify-center bg-[#1a1f2e] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#1a1f2e]/90 hover:scale-105"
-              >
-                Get Started
-              </Link>
-            </div> */}
+              <div className="space-y-3">
+                <p className="text-xs text-gray-400 text-center">
+                  Get notified when available:
+                </p>
+                <Link
+                  href="https://koya.kit.com/bcca878a1d"
+                  target="_blank"
+                  className="inline-flex w-full h-12 items-center justify-center bg-[#ff6b53] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#ff6b53]/90 hover:scale-105"
+                >
+                  Join Waitlist
+                </Link>
+              </div>
+            </div>
             <div
               className="bg-[#242935] p-8 rounded-xl border border-[#ff6b53] transform transition-all duration-500 hover:scale-105 hover:shadow-xl animate-slide-up"
               style={{ animationDelay: "200ms" }}
@@ -844,24 +892,26 @@ export default function LandingPage() {
                 <div className="inline-block px-3 py-1 bg-[#ff6b53] text-white rounded-full text-sm font-medium mb-2">
                   RECOMMENDED
                 </div>
-                <h3 className="text-xl font-bold mb-2">Premium (Beta)</h3>
+                <h3 className="text-xl font-bold mb-2">Pro</h3>
                 <p className="text-3xl font-bold mb-4">
-                  {/* $9.99 */}$0
+                  ₦5000
                   <span className="text-gray-400 text-lg font-normal">
                     /month
                   </span>
                 </p>
                 <p className="text-gray-300">
-                  {/* Everything you need for maximum accountability. */}
-                  Try all premium features at no cost while we’re in beta. Help
-                  shape the future of FirstRep.
+                  Everything you need for maximum accountability.
                 </p>
               </div>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center">
                   <Check className="h-5 w-5 text-[#ff6b53] mr-2" />
-                  <span>Advanced progress analytics</span>
+                  <span>Personalized AI Workouts</span>
                 </li>
+                {/* <li className="flex items-center">
+                  <Check className="h-5 w-5 text-[#ff6b53] mr-2" />
+                  <span>Advanced progress analytics</span>
+                </li> */}
                 <li className="flex items-center">
                   <Check className="h-5 w-5 text-[#ff6b53] mr-2" />
                   <span>Unlimited workout buddies</span>
@@ -872,14 +922,10 @@ export default function LandingPage() {
                 </li>
                 <li className="flex items-center">
                   <Check className="h-5 w-5 text-[#ff6b53] mr-2" />
-                  <span>Personalized accountability coach</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="h-5 w-5 text-[#ff6b53] mr-2" />
-                  <span>Premium workout templates</span>
+                  <span>Early access to new features</span>
                 </li>
               </ul>
-              <div className="space-y-3">
+              {/* <div className="space-y-3">
                 <p className="text-xs text-gray-400 text-center">
                   Available on:
                 </p>
@@ -909,6 +955,18 @@ export default function LandingPage() {
                     iOS
                   </Link>
                 </div>
+              </div> */}
+              <div className="space-y-3">
+                <p className="text-xs text-gray-400 text-center">
+                  Get notified when available:
+                </p>
+                <Link
+                  href="https://koya.kit.com/bcca878a1d"
+                  target="_blank"
+                  className="inline-flex w-full h-12 items-center justify-center bg-[#ff6b53] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#ff6b53]/90 hover:scale-105 hover:shadow-lg hover:shadow-[#ff6b53]/20"
+                >
+                  Join Waitlist
+                </Link>
               </div>
             </div>
           </div>
@@ -1028,41 +1086,32 @@ export default function LandingPage() {
               Ready to Build Lasting Fitness Habits?
             </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Join FirstRep today and transform your approach to fitness through
-              accountability, not just workouts.
+              Join our exclusive waitlist and be among the first to experience
+              the accountability-driven fitness app that actually works.
             </p>
             <div className="space-y-4">
               <Link
-                href="https://app.firstrep.xyz"
+                href="https://koya.kit.com/bcca878a1d"
                 target="_blank"
                 className="inline-flex h-14 px-8 items-center justify-center bg-[#1a1f2e] text-white rounded-md text-lg font-medium transition-all duration-300 hover:bg-[#1a1f2e]/90 hover:scale-105 hover:shadow-lg w-full sm:w-auto"
               >
-                <Globe className="w-5 h-5 mr-2" />
-                Try Web App <ArrowRight className="ml-2 h-5 w-5" />
+                🚀 Join Waitlist - Be First in Line{" "}
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
-                  target="_blank"
-                  className="inline-flex h-12 px-6 items-center justify-center bg-[#242935] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#242935]/90 hover:scale-105 hover:shadow-lg"
-                >
-                  <Smartphone className="w-4 h-4 mr-2" />
-                  Test Android Beta
-                </Link>
-                <Link
-                  href="https://testflight.apple.com/join/vGAsKpGg"
-                  target="_blank"
-                  className="inline-flex h-12 px-6 items-center justify-center bg-[#242935] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#242935]/90 hover:scale-105 hover:shadow-lg"
-                >
-                  <Smartphone className="w-4 h-4 mr-2" />
-                  Test iOS Beta
-                </Link>
-              </div>
+              <p className="text-sm">
+                Limited spots available for early access
+              </p>
             </div>
-            <p className="text-sm mt-4">
+            <p className="text-sm mt-6">
               By signing up, you agree to our{" "}
-              <Link href="/terms">Terms of Service</Link> and{" "}
-              <Link href="/privacy">Privacy Policy</Link>.
+              <Link href="/terms" className="underline hover:text-gray-200">
+                Terms of Service
+              </Link>{" "}
+              and{" "}
+              <Link href="/privacy" className="underline hover:text-gray-200">
+                Privacy Policy
+              </Link>
+              .
             </p>
           </div>
         </div>
