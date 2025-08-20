@@ -57,35 +57,31 @@ export default function LandingPage() {
 
   const buddyMockupImages = [
     {
-      src: "/images/buddies-mockup/buddy-page.png",
-      alt: "Person lifting weights",
+      src: "/images/buddies-mockup/buddy-page-new.png",
+      alt: "Buddy Page",
     },
     {
-      src: "/images/buddies-mockup/buddy-nearby.png",
-      alt: "Person lifting weights",
+      src: "/images/buddies-mockup/notifications.png",
+      alt: "Notifications Page",
     },
     {
-      src: "/images/buddies-mockup/buddy-results.png",
-      alt: "Person lifting weights",
+      src: "/images/buddies-mockup/leaderboard.png",
+      alt: "Leaderboard",
     },
   ];
 
   const progressMockupImages = [
     {
       src: "/images/progress-mockups/dashboard.png",
-      alt: "Person lifting weights",
+      alt: "Dashboard",
     },
     {
-      src: "/images/progress-mockups/calendar.png",
-      alt: "Person lifting weights",
+      src: "/images/progress-mockups/public_profile.png",
+      alt: "Public Profile",
     },
     {
-      src: "/images/progress-mockups/reminders.png",
-      alt: "Person lifting weights",
-    },
-    {
-      src: "/images/progress-mockups/progress-photos.png",
-      alt: "Person lifting weights",
+      src: "/images/progress-mockups/workout_session.png",
+      alt: "Workout Session",
     },
   ];
 
@@ -171,18 +167,28 @@ export default function LandingPage() {
                
               </div> */}
 
-              <div className="mt-4">
-                <p className="text-xs text-gray-400 mb-3 text-center">
-                  Get Early Access
+              <div className="mt-6 pt-4 border-t border-[#242935]">
+                <div className="space-y-3">
+                  <Link
+                    href="https://app.firstrep.xyz/auth"
+                    target="_blank"
+                    className="flex items-center justify-center w-full h-11 px-4 bg-transparent border border-[#ff6b53]/30 text-[#ff6b53] rounded-lg text-sm font-medium transition-all duration-300 hover:bg-[#ff6b53]/10 hover:border-[#ff6b53]/50 hover:scale-[1.02]"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Sign In
+                  </Link>
+                  <Link
+                    href="https://app.firstrep.xyz/auth"
+                    target="_blank"
+                    className="flex items-center justify-center w-full h-11 px-4 bg-gradient-to-r from-[#ff6b53] to-[#ff6b53]/90 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:from-[#ff6b53]/90 hover:to-[#ff6b53]/80 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#ff6b53]/20"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Create Free Account
+                  </Link>
+                </div>
+                <p className="text-xs text-gray-400 text-center mt-3">
+                  Start your consistency journey today
                 </p>
-                <Link
-                  href="https://koya.kit.com/bcca878a1d"
-                  target="_blank"
-                  className="inline-flex w-full h-10 px-4 py-2 bg-[#ff6b53] text-white rounded-md text-sm font-medium transition-all hover:bg-[#ff6b53]/90 justify-center items-center"
-                  onClick={() => setIsOpen(false)}
-                >
-                  🚀 Join Waitlist
-                </Link>
               </div>
             </div>
           </div>
@@ -200,7 +206,7 @@ export default function LandingPage() {
             <Heart className="h-6 w-6 text-[#ff6b53]" />
             <span className="text-xl font-bold">FirstRep</span>
           </div>
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             {/* <Link
               href="#features"
               className="text-sm text-gray-300 hover:text-white transition-colors"
@@ -232,44 +238,21 @@ export default function LandingPage() {
               FAQ
             </Link>
           </nav>
-          {/* <div className="flex items-center gap-4">
-            <div className="hidden lg:flex items-center gap-2">
-              <Link
-                href="https://app.firstrep.xyz"
-                target="_blank"
-                className="inline-flex h-9 px-4 py-2 bg-[#ff6b53] text-white rounded-md text-sm font-medium transition-all hover:bg-[#ff6b53]/90 hover:scale-105 items-center"
-              >
-                <Globe className="w-4 h-4 mr-2" />
-                Web App
-              </Link>
-              <Link
-                href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
-                target="_blank"
-                className="inline-flex h-9 px-3 py-2 bg-[#242935] text-white rounded-md text-sm font-medium transition-all hover:bg-[#242935]/90 hover:scale-105 items-center"
-              >
-                <Smartphone className="w-4 h-4 mr-1" />
-                Android
-              </Link>
-              <Link
-                href="https://testflight.apple.com/join/vGAsKpGg"
-                target="_blank"
-                className="inline-flex h-9 px-3 py-2 bg-[#242935] text-white rounded-md text-sm font-medium transition-all hover:bg-[#242935]/90 hover:scale-105 items-center"
-              >
-                <Smartphone className="w-4 h-4 mr-1" />
-                iOS
-              </Link>
-            </div>
-            <MobileMenu />
-          </div> */}
-
           <div className="flex items-center gap-4">
-            <div className="hidden lg:flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-2">
               <Link
-                href="https://koya.kit.com/bcca878a1d"
+                href="https://app.firstrep.xyz/auth"
                 target="_blank"
-                className="inline-flex h-9 px-6 py-2 bg-[#ff6b53] text-white rounded-md text-sm font-medium transition-all hover:bg-[#ff6b53]/90 hover:scale-105 items-center"
+                className="flex items-center justify-center h-9 px-5 bg-transparent border border-[#ff6b53]/30 text-[#ff6b53] rounded-md text-sm font-medium transition-all duration-300 hover:bg-[#ff6b53]/10 hover:border-[#ff6b53]/50 hover:scale-[1.02]"
               >
-                Join Waitlist
+                Sign In
+              </Link>
+              <Link
+                href="https://app.firstrep.xyz/auth"
+                target="_blank"
+                className="flex items-center justify-center h-9 px-5 bg-gradient-to-r from-[#ff6b53] to-[#ff6b53]/90 text-white rounded-md text-sm font-medium transition-all duration-300 hover:from-[#ff6b53]/90 hover:to-[#ff6b53]/80 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#ff6b53]/20"
+              >
+                Create Free Account
               </Link>
             </div>
             <MobileMenu />
@@ -292,50 +275,38 @@ export default function LandingPage() {
                 lasting fitness habits through social connection and
                 accountability, not just workouts.
               </p>
-              {/* <div className="space-y-4">
-                <p className="text-sm text-gray-400 font-medium">
-                  Choose your platform:
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3 flex-wrap">
-                  <Link
-                    href="https://app.firstrep.xyz"
-                    target="_blank"
-                    className="inline-flex h-12 px-6 items-center justify-center bg-[#ff6b53] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#ff6b53]/90 hover:scale-105 hover:shadow-lg hover:shadow-[#ff6b53]/20"
-                  >
-                    <Globe className="w-5 h-5 mr-2" />
-                    Try Web App
-                  </Link>
-                  <div className="flex gap-3">
-                    <Link
-                      href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
-                      target="_blank"
-                      className="inline-flex h-12 px-4 items-center justify-center bg-[#242935] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#242935]/90 hover:scale-105 flex-1 sm:flex-none"
-                    >
-                      <Smartphone className="w-5 h-5 mr-2" />
-                      Android Beta
-                    </Link>
-                    <Link
-                      href="https://testflight.apple.com/join/vGAsKpGg"
-                      target="_blank"
-                      className="inline-flex h-12 px-4 items-center justify-center bg-[#242935] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#242935]/90 hover:scale-105 flex-1 sm:flex-none"
-                    >
-                      <Smartphone className="w-5 h-5 mr-2" />
-                      iOS Beta
-                    </Link>
-                  </div>
-                </div>
-              </div> */}
               <div className="space-y-4">
                 <p className="text-sm text-gray-400 font-medium">
-                  Be among the first to experience FirstRep:
+                  Download FirstRep today:
                 </p>
-                <Link
-                  href="https://koya.kit.com/bcca878a1d"
-                  target="_blank"
-                  className="inline-flex h-12 px-8 items-center justify-center bg-[#ff6b53] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#ff6b53]/90 hover:scale-105 hover:shadow-lg hover:shadow-[#ff6b53]/20"
-                >
-                  🚀 Join Waitlist - Get Early Access
-                </Link>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link
+                    href="https://apps.apple.com/app/id6748527380"
+                    target="_blank"
+                    className="block transform transition duration-300 ease-in-out hover:scale-105 hover:translate-y-[-2px] hover:shadow-lg"
+                  >
+                    <Image
+                      src="/images/apple_cta.svg"
+                      alt="Download on the App Store"
+                      width={162}
+                      height={48}
+                      className="h-12 w-auto"
+                    />
+                  </Link>
+                  <Link
+                    href="https://koya.kit.com/bcca878a1d"
+                    target="_blank"
+                    className="block transform transition duration-300 ease-in-out hover:scale-105 hover:translate-y-[-2px] hover:shadow-lg"
+                  >
+                    <Image
+                      src="/images/google_play_cta.png"
+                      alt="Get it on Google Play"
+                      width={162}
+                      height={48}
+                      className="h-12 w-auto"
+                    />
+                  </Link>
+                </div>
                 <p className="text-xs text-gray-400">
                   Join 100+ people building better fitness habits
                 </p>
@@ -844,7 +815,7 @@ export default function LandingPage() {
               <div className="mb-6">
                 <h3 className="text-xl font-bold mb-2">Free</h3>
                 <p className="text-3xl font-bold mb-4">
-                  $0
+                  ₦0
                   <span className="text-gray-400 text-lg font-normal">
                     /month
                   </span>
@@ -871,7 +842,7 @@ export default function LandingPage() {
                   <span>Basic reminders</span>
                 </li>
               </ul>
-              <div className="space-y-3">
+              {/* <div className="space-y-3">
                 <p className="text-xs text-gray-400 text-center">
                   Get notified when available:
                 </p>
@@ -882,7 +853,7 @@ export default function LandingPage() {
                 >
                   Join Waitlist
                 </Link>
-              </div>
+              </div> */}
             </div>
             <div
               className="bg-[#242935] p-8 rounded-xl border border-[#ff6b53] transform transition-all duration-500 hover:scale-105 hover:shadow-xl animate-slide-up"
@@ -894,9 +865,12 @@ export default function LandingPage() {
                 </div>
                 <h3 className="text-xl font-bold mb-2">Pro</h3>
                 <p className="text-3xl font-bold mb-4">
-                  ₦5000
+                  ₦5900
                   <span className="text-gray-400 text-lg font-normal">
                     /month
+                  </span>
+                  <span className="block text-sm text-gray-400 font-normal mt-1">
+                    (~$3.85 USD)
                   </span>
                 </p>
                 <p className="text-gray-300">
@@ -925,49 +899,6 @@ export default function LandingPage() {
                   <span>Early access to new features</span>
                 </li>
               </ul>
-              {/* <div className="space-y-3">
-                <p className="text-xs text-gray-400 text-center">
-                  Available on:
-                </p>
-                <Link
-                  href="https://app.firstrep.xyz"
-                  target="_blank"
-                  className="inline-flex w-full h-12 items-center justify-center bg-[#ff6b53] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#ff6b53]/90 hover:scale-105 hover:shadow-lg hover:shadow-[#ff6b53]/20"
-                >
-                  <Globe className="w-4 h-4 mr-2" />
-                  Web App
-                </Link>
-                <div className="grid grid-cols-2 gap-2">
-                  <Link
-                    href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
-                    target="_blank"
-                    className="inline-flex h-10 items-center justify-center bg-[#1a1f2e] text-white rounded-md text-sm font-medium transition-all duration-300 hover:bg-[#1a1f2e]/90 hover:scale-105"
-                  >
-                    <Smartphone className="w-4 h-4 mr-1" />
-                    Android
-                  </Link>
-                  <Link
-                    href="https://testflight.apple.com/join/vGAsKpGg"
-                    target="_blank"
-                    className="inline-flex h-10 items-center justify-center bg-[#1a1f2e] text-white rounded-md text-sm font-medium transition-all duration-300 hover:bg-[#1a1f2e]/90 hover:scale-105"
-                  >
-                    <Smartphone className="w-4 h-4 mr-1" />
-                    iOS
-                  </Link>
-                </div>
-              </div> */}
-              <div className="space-y-3">
-                <p className="text-xs text-gray-400 text-center">
-                  Get notified when available:
-                </p>
-                <Link
-                  href="https://koya.kit.com/bcca878a1d"
-                  target="_blank"
-                  className="inline-flex w-full h-12 items-center justify-center bg-[#ff6b53] text-white rounded-md text-base font-medium transition-all duration-300 hover:bg-[#ff6b53]/90 hover:scale-105 hover:shadow-lg hover:shadow-[#ff6b53]/20"
-                >
-                  Join Waitlist
-                </Link>
-              </div>
             </div>
           </div>
         </div>
@@ -1083,24 +1014,39 @@ export default function LandingPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-gradient-to-r from-[#ff6b53]/90 to-[#ff6b53]/70 p-8 md:p-12 rounded-2xl text-center transform transition-all duration-700 hover:shadow-2xl animate-slide-up">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Build Lasting Fitness Habits?
+              Ready to Transform Your Fitness Journey?
             </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Join our exclusive waitlist and be among the first to experience
-              the accountability-driven fitness app that actually works.
+              Download FirstRep today and start building the consistent fitness
+              habits that will change your life.
             </p>
-            <div className="space-y-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+              <Link
+                href="https://apps.apple.com/app/id6748527380"
+                target="_blank"
+                className="block transform transition duration-300 ease-in-out hover:scale-105 hover:translate-y-[-2px] hover:shadow-lg"
+              >
+                <Image
+                  src="/images/apple_cta.svg"
+                  alt="Download on the App Store"
+                  width={189}
+                  height={56}
+                  className="h-14 w-auto"
+                />
+              </Link>
               <Link
                 href="https://koya.kit.com/bcca878a1d"
                 target="_blank"
-                className="inline-flex h-14 px-8 items-center justify-center bg-[#1a1f2e] text-white rounded-md text-lg font-medium transition-all duration-300 hover:bg-[#1a1f2e]/90 hover:scale-105 hover:shadow-lg w-full sm:w-auto"
+                className="block transform transition duration-300 ease-in-out hover:scale-105 hover:translate-y-[-2px] hover:shadow-lg"
               >
-                🚀 Join Waitlist - Be First in Line{" "}
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <Image
+                  src="/images/google_play_cta.png"
+                  alt="Get it on Google Play"
+                  width={189}
+                  height={56}
+                  className="h-14 w-auto"
+                />
               </Link>
-              <p className="text-sm">
-                Limited spots available for early access
-              </p>
             </div>
             <p className="text-sm mt-6">
               By signing up, you agree to our{" "}
