@@ -57,35 +57,31 @@ export default function LandingPage() {
 
   const buddyMockupImages = [
     {
-      src: "/images/buddies-mockup/buddy-page.png",
-      alt: "Person lifting weights",
+      src: "/images/buddies-mockup/buddy-page-new.png",
+      alt: "Buddy Page",
     },
     {
-      src: "/images/buddies-mockup/buddy-nearby.png",
-      alt: "Person lifting weights",
+      src: "/images/buddies-mockup/notifications.png",
+      alt: "Notifications Page",
     },
     {
-      src: "/images/buddies-mockup/buddy-results.png",
-      alt: "Person lifting weights",
+      src: "/images/buddies-mockup/leaderboard.png",
+      alt: "Leaderboard",
     },
   ];
 
   const progressMockupImages = [
     {
       src: "/images/progress-mockups/dashboard.png",
-      alt: "Person lifting weights",
+      alt: "Dashboard",
     },
     {
-      src: "/images/progress-mockups/calendar.png",
-      alt: "Person lifting weights",
+      src: "/images/progress-mockups/public_profile.png",
+      alt: "Public Profile",
     },
     {
-      src: "/images/progress-mockups/reminders.png",
-      alt: "Person lifting weights",
-    },
-    {
-      src: "/images/progress-mockups/progress-photos.png",
-      alt: "Person lifting weights",
+      src: "/images/progress-mockups/workout_session.png",
+      alt: "Workout Session",
     },
   ];
 
