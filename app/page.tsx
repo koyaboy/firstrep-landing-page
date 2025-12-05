@@ -30,8 +30,11 @@ import AutoCarousel from "@/components/auto-carousel/page";
 import "../styles/styles.css";
 import TestimonialSlideshow from "@/components/testimonial-slideshow/page";
 import { useState } from "react";
+import Footer from "@/components/footer/page";
 
 export default function LandingPage() {
+  const [view, setView] = useState<"individuals" | "gyms">("individuals");
+
   const heroImages = [
     {
       src: "/images/hero-2.jpg",
@@ -193,6 +196,369 @@ export default function LandingPage() {
             </div>
           </div>
         )}
+      </div>
+    );
+  }
+
+  function ViewToggle() {
+    return (
+      <div className="inline-flex items-center gap-1 bg-[#242935] p-1 rounded-lg">
+        <button
+          onClick={() => setView("individuals")}
+          className={`px-4 py-2 rounded-md font-medium transition-all duration-300 text-sm ${
+            view === "individuals"
+              ? "bg-[#ff6b53] text-white shadow-lg shadow-[#ff6b53]/20"
+              : "text-gray-300 hover:text-white"
+          }`}
+        >
+          For Individuals
+        </button>
+        <button
+          onClick={() => setView("gyms")}
+          className={`px-4 py-2 rounded-md font-medium transition-all duration-300 text-sm ${
+            view === "gyms"
+              ? "bg-[#ff6b53] text-white shadow-lg shadow-[#ff6b53]/20"
+              : "text-gray-300 hover:text-white"
+          }`}
+        >
+          For Gyms
+        </button>
+      </div>
+    );
+  }
+
+  if (view === "gyms") {
+    return (
+      <div className="min-h-screen bg-[#1a1f2e] text-white">
+        {/* Header */}
+        <header className="border-b border-[#242935] sticky top-0 z-50 bg-[#1a1f2e]/95 backdrop-blur-sm">
+          <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Heart className="h-6 w-6 text-[#ff6b53]" />
+              <span className="text-xl font-bold">FirstRep</span>
+            </div>
+            <div className="hidden md:block">
+              <ViewToggle />
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="hidden lg:flex items-center gap-3">
+                <Link
+                  href="/signin"
+                  className="flex items-center justify-center h-9 px-5 bg-transparent border border-[#ff6b53]/30 text-[#ff6b53] rounded-md text-sm font-medium transition-all duration-300 hover:bg-[#ff6b53]/10 hover:border-[#ff6b53]/50 hover:scale-[1.02]"
+                >
+                  Sign In
+                </Link>
+                <Link
+                  href="/signup"
+                  className="flex items-center justify-center h-9 px-5 bg-gradient-to-r from-[#ff6b53] to-[#ff6b53]/90 text-white rounded-md text-sm font-medium transition-all duration-300 hover:from-[#ff6b53]/90 hover:to-[#ff6b53]/80 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#ff6b53]/20"
+                >
+                  Create Free Account
+                </Link>
+              </div>
+              <MobileMenu />
+            </div>
+          </div>
+        </header>
+
+        {/* Mobile View Toggle */}
+        <div className="md:hidden border-b border-[#242935] bg-[#1a1f2e]">
+          <div className="container mx-auto px-4 py-4">
+            <ViewToggle />
+          </div>
+        </div>
+
+        {/* Hero Section - Gyms */}
+        <section className="py-16 md:py-24 animate-fade-in">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6 animate-slide-up">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                  Stop Losing Members.{" "}
+                  <span className="text-[#ff6b53]">Start Retaining Them.</span>
+                </h1>
+                <p className="text-lg text-gray-300 md:text-xl">
+                  FirstRep helps fitness centers automatically identify members
+                  who are about to quit and help retain them before they cancel
+                  their subscription.
+                </p>
+                <div className="space-y-4">
+                  <p className="text-sm text-gray-400 font-medium">
+                    Get started today:
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Link
+                      href="/signup?type=gym"
+                      className="flex items-center justify-center h-12 px-8 bg-gradient-to-r from-[#ff6b53] to-[#ff6b53]/90 text-white rounded-lg text-base font-medium transition-all duration-300 hover:from-[#ff6b53]/90 hover:to-[#ff6b53]/80 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#ff6b53]/20"
+                    >
+                      Start Free Trial
+                    </Link>
+                    <Link
+                      href="#how-it-works"
+                      className="flex items-center justify-center h-12 px-8 bg-transparent border border-[#ff6b53]/30 text-[#ff6b53] rounded-lg text-base font-medium transition-all duration-300 hover:bg-[#ff6b53]/10 hover:border-[#ff6b53]/50 hover:scale-[1.02]"
+                    >
+                      See How It Works
+                    </Link>
+                  </div>
+                  <p className="text-xs text-gray-400">
+                    2 weeks free trial • No credit card required
+                  </p>
+                </div>
+              </div>
+              <div className="relative rounded-xl overflow-hidden border border-[#242935] shadow-2xl transform transition-all duration-700 hover:scale-[1.02] animate-slide-in-right">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#ff6b53]/10 to-transparent opacity-60 z-10"></div>
+                <Image
+                  src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop"
+                  alt="Modern gym with members working out"
+                  width={650}
+                  height={400}
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#1a1f2e] to-transparent">
+                  <div className="bg-[#242935]/80 backdrop-blur-sm rounded-xl p-4 border border-[#333]">
+                    <div className="grid grid-cols-2 gap-3 text-sm">
+                      <div className="space-y-1">
+                        <p className="text-gray-400 text-xs">Members Saved</p>
+                        <p className="text-xl font-bold text-[#ff6b53]">142</p>
+                      </div>
+                      <div className="space-y-1">
+                        <p className="text-gray-400 text-xs">Retention Rate</p>
+                        <p className="text-xl font-bold text-[#ff6b53]">87%</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Problem Section - Gyms */}
+        <section className="py-16 bg-[#242935] animate-fade-in">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center mb-12 animate-slide-up">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                The Leaks Are Killing Your Center
+              </h2>
+              <p className="text-lg text-gray-300">
+                You’re gaining new members every month, but they’re slipping out
+                the back door just as fast. Without early warnings and timely
+                outreach, you’ll never get ahead.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div
+                className="bg-[#1a1f2e] p-6 rounded-xl transform transition-all duration-500 hover:scale-105 hover:shadow-xl animate-slide-up"
+                style={{ animationDelay: "100ms" }}
+              >
+                <div className="w-12 h-12 bg-[#ff6b53]/20 rounded-full flex items-center justify-center mb-4">
+                  <Users className="h-6 w-6 text-[#ff6b53]" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Silent Churn</h3>
+                <p className="text-gray-300">
+                  Members disappear without notice. You don't know they've
+                  stopped coming until it's too late.
+                </p>
+              </div>
+              <div
+                className="bg-[#1a1f2e] p-6 rounded-xl transform transition-all duration-500 hover:scale-105 hover:shadow-xl animate-slide-up"
+                style={{ animationDelay: "200ms" }}
+              >
+                <div className="w-12 h-12 bg-[#ff6b53]/20 rounded-full flex items-center justify-center mb-4">
+                  <BarChart className="h-6 w-6 text-[#ff6b53]" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">No Visibility</h3>
+                <p className="text-gray-300">
+                  Spreadsheets and manual tracking don't give you real-time
+                  insights into who's at risk.
+                </p>
+              </div>
+              <div
+                className="bg-[#1a1f2e] p-6 rounded-xl transform transition-all duration-500 hover:scale-105 hover:shadow-xl animate-slide-up"
+                style={{ animationDelay: "300ms" }}
+              >
+                <div className="w-12 h-12 bg-[#ff6b53]/20 rounded-full flex items-center justify-center mb-4">
+                  <Bell className="h-6 w-6 text-[#ff6b53]" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">No Outreach</h3>
+                <p className="text-gray-300">
+                  Without automated outreach, you can't reach members before
+                  they make the decision to leave.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section - Gyms */}
+        <section id="features" className="py-16 md:py-24 animate-fade-in">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center mb-16 animate-slide-up">
+              <div className="inline-block px-3 py-1 bg-[#ff6b53]/20 text-[#ff6b53] rounded-full text-sm font-medium mb-4">
+                HOW IT WORKS
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Your Retention Engine
+              </h2>
+              <p className="text-lg text-gray-300">
+                While you run your fitness center, FirstRep runs in the
+                background tracking members, spotting risks, and reaching out
+                before they cancel.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              <div
+                className="bg-[#242935] p-6 rounded-xl transform transition-all duration-500 hover:scale-105 hover:shadow-xl animate-slide-up"
+                style={{ animationDelay: "100ms" }}
+              >
+                <div className="w-12 h-12 bg-[#ff6b53]/20 rounded-full flex items-center justify-center mb-4">
+                  <QrCode className="h-6 w-6 text-[#ff6b53]" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Unique QR Code</h3>
+                <p className="text-gray-300">
+                  Each fitness center gets a unique QR code. Members simply scan
+                  it through the app to check in.
+                </p>
+              </div>
+              <div
+                className="bg-[#242935] p-6 rounded-xl transform transition-all duration-500 hover:scale-105 hover:shadow-xl animate-slide-up"
+                style={{ animationDelay: "200ms" }}
+              >
+                <div className="w-12 h-12 bg-[#ff6b53]/20 rounded-full flex items-center justify-center mb-4">
+                  <TrendingUp className="h-6 w-6 text-[#ff6b53]" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">
+                  Real-Time Risk Alerts
+                </h3>
+                <p className="text-gray-300">
+                  See who’s active, who’s going quiet, and who’s dangerously
+                  close to quitting. Our dashboard updates daily so nothing
+                  slips through.
+                </p>
+              </div>
+              <div
+                className="bg-[#242935] p-6 rounded-xl transform transition-all duration-500 hover:scale-105 hover:shadow-xl animate-slide-up"
+                style={{ animationDelay: "300ms" }}
+              >
+                <div className="w-12 h-12 bg-[#ff6b53]/20 rounded-full flex items-center justify-center mb-4">
+                  <Target className="h-6 w-6 text-[#ff6b53]" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">AI-Driven Outreach</h3>
+                <p className="text-gray-300">
+                  Our trained AI sends timely texts and makes smart calls to
+                  inactive members, guiding them back before they cancel their
+                  subscription.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div className="animate-slide-up">
+                <div className="space-y-6">
+                  <div className="flex gap-4 transform transition-all duration-500 hover:translate-x-2">
+                    <div className="w-12 h-12 bg-[#ff6b53]/20 rounded-full flex items-center justify-center flex-shrink-0">
+                      <BarChart className="h-6 w-6 text-[#ff6b53]" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-2">
+                        Retention Dashboard
+                      </h3>
+                      <p className="text-gray-300">
+                        Track members saved, AI messages sent, and your
+                        retention rate all in one view.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 transform transition-all duration-500 hover:translate-x-2">
+                    <div className="w-12 h-12 bg-[#ff6b53]/20 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Users className="h-6 w-6 text-[#ff6b53]" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-2">Member Metrics</h3>
+                      <p className="text-gray-300">
+                        Track active members, dormant members, and new sign-ups
+                        this month.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 transform transition-all duration-500 hover:translate-x-2">
+                    <div className="w-12 h-12 bg-[#ff6b53]/20 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Bell className="h-6 w-6 text-[#ff6b53]" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-2">
+                        Admin Portal & QR Management
+                      </h3>
+                      <p className="text-gray-300">
+                        Manage check-ins, view analytics, and update settings
+                        from one simple dashboard.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="relative rounded-xl overflow-hidden border border-[#242935] shadow-2xl animate-slide-in-right">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#ff6b53]/10 to-transparent opacity-60 z-10"></div>
+                <Image
+                  src="https://images.unsplash.com/photo-1460925895917-adf4c9b27a95?q=80&w=2070&auto=format&fit=crop"
+                  alt="Gym retention dashboard analytics"
+                  width={650}
+                  height={400}
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#1a1f2e] to-transparent">
+                  <div className="bg-[#242935]/80 backdrop-blur-sm rounded-xl p-4 border border-[#333]">
+                    <div className="grid grid-cols-3 gap-2 text-sm">
+                      <div className="space-y-1">
+                        <p className="text-gray-400 text-xs">Active</p>
+                        <p className="text-lg font-bold text-[#ff6b53]">486</p>
+                      </div>
+                      <div className="space-y-1">
+                        <p className="text-gray-400 text-xs">Dormant</p>
+                        <p className="text-lg font-bold text-[#ff6b53]">48</p>
+                      </div>
+                      <div className="space-y-1">
+                        <p className="text-gray-400 text-xs">At Risk</p>
+                        <p className="text-lg font-bold text-[#ff6b53]">12</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section - Gyms */}
+        <section className="py-16 md:py-24 animate-fade-in">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Ready to Keep More Members?
+              </h2>
+              <p className="text-lg text-gray-300 mb-8">
+                Join gyms across the country using FirstRep to retain members
+                and grow their business.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/signup?type=gym"
+                  className="flex items-center justify-center h-12 px-8 bg-gradient-to-r from-[#ff6b53] to-[#ff6b53]/90 text-white rounded-lg font-medium transition-all duration-300 hover:from-[#ff6b53]/90 hover:to-[#ff6b53]/80 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#ff6b53]/20"
+                >
+                  Start Free Trial
+                </Link>
+                <Link
+                  href="mailto:gyms@firstrep.app"
+                  className="flex items-center justify-center h-12 px-8 bg-transparent border border-[#ff6b53]/30 text-[#ff6b53] rounded-lg font-medium transition-all duration-300 hover:bg-[#ff6b53]/10 hover:border-[#ff6b53]/50 hover:scale-[1.02]"
+                >
+                  Talk to Our Team
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <Footer />
       </div>
     );
   }
@@ -1063,203 +1429,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 border-t border-[#242935] animate-fade-in">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Heart className="h-6 w-6 text-[#ff6b53]" />
-                <span className="text-xl font-bold">FirstRep</span>
-              </div>
-              <p className="text-gray-400 mb-4">
-                Building consistency through accountability.
-              </p>
-              <div className="flex gap-4">
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-[#ff6b53] transition-colors duration-300"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                  </svg>
-                </a>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-[#ff6b53] transition-colors duration-300"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <rect
-                      x="2"
-                      y="2"
-                      width="20"
-                      height="20"
-                      rx="5"
-                      ry="5"
-                    ></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                  </svg>
-                </a>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-[#ff6b53] transition-colors duration-300"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Company</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
-                  >
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
-                  >
-                    Careers
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
-                  >
-                    Press
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
-                  >
-                    Blog
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Resources</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
-                  >
-                    Help Center
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
-                  >
-                    Community
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
-                  >
-                    Fitness Tips
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
-                  >
-                    API
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Legal</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="/privacy"
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
-                  >
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/terms"
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
-                  >
-                    Terms of Service
-                  </Link>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
-                  >
-                    Cookie Policy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
-                  >
-                    GDPR
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-12 pt-8 border-t border-[#333] text-center text-gray-400 text-sm">
-            <p>
-              &copy; {new Date().getFullYear()} FirstRep. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
