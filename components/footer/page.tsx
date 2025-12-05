@@ -1,6 +1,7 @@
 import React from "react";
+import Link from "next/link";
 
-import { Heart, Link } from "lucide-react";
+import { Heart } from "lucide-react";
 
 const Footer = () => {
   return (
