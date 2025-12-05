@@ -19,6 +19,9 @@ import {
   Menu,
   Smartphone,
   Globe,
+  QrCode,
+  TrendingUp,
+  Target,
 } from "lucide-react";
 import {
   Accordion,
@@ -92,7 +95,7 @@ export default function LandingPage() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-      <div className="md:hidden">
+      <div className="lg:hidden">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="text-gray-300 p-2 focus:outline-none"
@@ -132,45 +135,8 @@ export default function LandingPage() {
               >
                 FAQ
               </Link>
-              {/* <div className="mt-4">
-                <p className="text-xs text-gray-400 mb-3 text-center">
-                  Try FirstRep
-                </p> 
-                <div className="flex flex-col gap-2 flex-wrap">
-                  <Link
-                    href="https://app.firstrep.xyz"
-                    target="_blank"
-                    className="inline-flex h-10 px-4 py-2 bg-[#ff6b53] text-white rounded-md text-sm font-medium transition-all hover:bg-[#ff6b53]/90 justify-center items-center"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <Globe className="w-4 h-4 mr-2" />
-                    Web App
-                  </Link>
-                  <div className="grid grid-cols-2 gap-2">
-                    <Link
-                      href="https://appdistribution.firebase.dev/i/36ea9f53c7e33092"
-                      target="_blank"
-                      className="inline-flex h-10 px-3 py-2 bg-[#242935] text-white rounded-md text-sm font-medium transition-all hover:bg-[#242935]/90 justify-center items-center"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      <Smartphone className="w-4 h-4 mr-1" />
-                      Android
-                    </Link>
-                    <Link
-                      href="https://testflight.apple.com/join/vGAsKpGg"
-                      target="_blank"
-                      className="inline-flex h-10 px-3 py-2 bg-[#242935] text-white rounded-md text-sm font-medium transition-all hover:bg-[#242935]/90 justify-center items-center"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      <Smartphone className="w-4 h-4 mr-1" />
-                      iOS
-                    </Link>
-                  </div>
-                </div> 
-               
-              </div> */}
 
-              <div className="mt-6 pt-4 border-t border-[#242935]">
+              {/* <div className="mt-6 pt-4 border-t border-[#242935]">
                 <div className="space-y-3">
                   <Link
                     href="https://app.firstrep.xyz/auth"
@@ -192,7 +158,7 @@ export default function LandingPage() {
                 <p className="text-xs text-gray-400 text-center mt-3">
                   Start your consistency journey today
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         )}
@@ -231,46 +197,52 @@ export default function LandingPage() {
     return (
       <div className="min-h-screen bg-[#1a1f2e] text-white">
         {/* Header */}
-        <header className="border-b border-[#242935] sticky top-0 z-50 bg-[#1a1f2e]/95 backdrop-blur-sm">
-          <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Heart className="h-6 w-6 text-[#ff6b53]" />
-              <span className="text-xl font-bold">FirstRep</span>
+
+        <div className="sticky top-0 z-50 bg-[#1a1f2e]/95 backdrop-blur-sm">
+          <header className="border-b border-[#242935]">
+            <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2">
+                  <Heart className="h-6 w-6 text-[#ff6b53]" />
+                  <span className="text-xl font-bold">FirstRep</span>
+                </div>
+
+                <div className="hidden lg:block">
+                  <ViewToggle />
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="flex-col sm:flex-row gap-4 hidden lg:flex">
+                  <Link
+                    href="https://admin.firstrep.xyz"
+                    className="flex items-center justify-center h-9 px-5 bg-gradient-to-r from-[#ff6b53] to-[#ff6b53]/90 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:from-[#ff6b53]/90 hover:to-[#ff6b53]/80 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#ff6b53]/20"
+                  >
+                    Start Free Trial
+                  </Link>
+                  <Link
+                    href="mailto:koya@firstrep.xyz"
+                    className="flex items-center justify-center h-9 px-5 bg-transparent border border-[#ff6b53]/30 text-[#ff6b53] rounded-lg text-sm font-medium transition-all duration-300 hover:bg-[#ff6b53]/10 hover:border-[#ff6b53]/50 hover:scale-[1.02]"
+                  >
+                    Talk to Our Team
+                  </Link>
+                </div>
+                {/* <MobileMenu /> */}
+              </div>
             </div>
-            <div className="hidden md:block">
+          </header>
+
+          {/* Mobile View Toggle */}
+          <div className="lg:hidden border-b border-[#242935]">
+            <div className="container mx-auto px-4 py-4">
               <ViewToggle />
             </div>
-            <div className="flex items-center gap-4">
-              <div className="hidden lg:flex items-center gap-3">
-                <Link
-                  href="/signin"
-                  className="flex items-center justify-center h-9 px-5 bg-transparent border border-[#ff6b53]/30 text-[#ff6b53] rounded-md text-sm font-medium transition-all duration-300 hover:bg-[#ff6b53]/10 hover:border-[#ff6b53]/50 hover:scale-[1.02]"
-                >
-                  Sign In
-                </Link>
-                <Link
-                  href="/signup"
-                  className="flex items-center justify-center h-9 px-5 bg-gradient-to-r from-[#ff6b53] to-[#ff6b53]/90 text-white rounded-md text-sm font-medium transition-all duration-300 hover:from-[#ff6b53]/90 hover:to-[#ff6b53]/80 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#ff6b53]/20"
-                >
-                  Create Free Account
-                </Link>
-              </div>
-              <MobileMenu />
-            </div>
-          </div>
-        </header>
-
-        {/* Mobile View Toggle */}
-        <div className="md:hidden border-b border-[#242935] bg-[#1a1f2e]">
-          <div className="container mx-auto px-4 py-4">
-            <ViewToggle />
           </div>
         </div>
 
         {/* Hero Section - Gyms */}
         <section className="py-16 md:py-24 animate-fade-in">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6 animate-slide-up">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                   Stop Losing Members.{" "}
@@ -285,18 +257,18 @@ export default function LandingPage() {
                   <p className="text-sm text-gray-400 font-medium">
                     Get started today:
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="flex flex-col sm:flex-row gap-3">
                     <Link
-                      href="/signup?type=gym"
+                      href="https://admin.firstrep.xyz"
                       className="flex items-center justify-center h-12 px-8 bg-gradient-to-r from-[#ff6b53] to-[#ff6b53]/90 text-white rounded-lg text-base font-medium transition-all duration-300 hover:from-[#ff6b53]/90 hover:to-[#ff6b53]/80 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#ff6b53]/20"
                     >
                       Start Free Trial
                     </Link>
                     <Link
-                      href="#how-it-works"
-                      className="flex items-center justify-center h-12 px-8 bg-transparent border border-[#ff6b53]/30 text-[#ff6b53] rounded-lg text-base font-medium transition-all duration-300 hover:bg-[#ff6b53]/10 hover:border-[#ff6b53]/50 hover:scale-[1.02]"
+                      href="mailto:koya@firstrep.xyz"
+                      className="flex items-center justify-center h-12 px-8 bg-transparent border border-[#ff6b53]/30 text-[#ff6b53] rounded-lg font-medium transition-all duration-300 hover:bg-[#ff6b53]/10 hover:border-[#ff6b53]/50 hover:scale-[1.02]"
                     >
-                      See How It Works
+                      Talk to Our Team
                     </Link>
                   </div>
                   <p className="text-xs text-gray-400">
@@ -345,7 +317,7 @@ export default function LandingPage() {
                 outreach, you’ll never get ahead.
               </p>
             </div>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid lg:grid-cols-3 gap-8">
               <div
                 className="bg-[#1a1f2e] p-6 rounded-xl transform transition-all duration-500 hover:scale-105 hover:shadow-xl animate-slide-up"
                 style={{ animationDelay: "100ms" }}
@@ -406,7 +378,7 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="grid lg:grid-cols-3 gap-8 mb-16">
               <div
                 className="bg-[#242935] p-6 rounded-xl transform transition-all duration-500 hover:scale-105 hover:shadow-xl animate-slide-up"
                 style={{ animationDelay: "100ms" }}
@@ -452,7 +424,7 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="animate-slide-up">
                 <div className="space-y-6">
                   <div className="flex gap-4 transform transition-all duration-500 hover:translate-x-2">
@@ -497,16 +469,16 @@ export default function LandingPage() {
                   </div>
                 </div>
               </div>
-              <div className="relative rounded-xl overflow-hidden border border-[#242935] shadow-2xl animate-slide-in-right">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#ff6b53]/10 to-transparent opacity-60 z-10"></div>
+              <div className="relative rounded-xl overflow-hidden animate-slide-in-right">
+                {/* <div className="absolute inset-0 bg-gradient-to-r from-[#ff6b53]/10 to-transparent opacity-60 z-10"></div> */}
                 <Image
-                  src="https://images.unsplash.com/photo-1460925895917-adf4c9b27a95?q=80&w=2070&auto=format&fit=crop"
+                  src="/images/mac.png"
                   alt="Gym retention dashboard analytics"
                   width={650}
                   height={400}
                   className="w-full h-auto object-cover"
                 />
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#1a1f2e] to-transparent">
+                {/* <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#1a1f2e] to-transparent">
                   <div className="bg-[#242935]/80 backdrop-blur-sm rounded-xl p-4 border border-[#333]">
                     <div className="grid grid-cols-3 gap-2 text-sm">
                       <div className="space-y-1">
@@ -523,7 +495,7 @@ export default function LandingPage() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -542,13 +514,13 @@ export default function LandingPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  href="/signup?type=gym"
+                  href="https://admin.firstrep.xyz"
                   className="flex items-center justify-center h-12 px-8 bg-gradient-to-r from-[#ff6b53] to-[#ff6b53]/90 text-white rounded-lg font-medium transition-all duration-300 hover:from-[#ff6b53]/90 hover:to-[#ff6b53]/80 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#ff6b53]/20"
                 >
                   Start Free Trial
                 </Link>
                 <Link
-                  href="mailto:gyms@firstrep.app"
+                  href="mailto:koya@firstrep.xyz"
                   className="flex items-center justify-center h-12 px-8 bg-transparent border border-[#ff6b53]/30 text-[#ff6b53] rounded-lg font-medium transition-all duration-300 hover:bg-[#ff6b53]/10 hover:border-[#ff6b53]/50 hover:scale-[1.02]"
                 >
                   Talk to Our Team
@@ -566,46 +538,53 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-[#1a1f2e] text-white">
       {/* Header */}
-      <header className="border-b border-[#242935] sticky top-0 z-50 bg-[#1a1f2e]/95 backdrop-blur-sm">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Heart className="h-6 w-6 text-[#ff6b53]" />
-            <span className="text-xl font-bold">FirstRep</span>
-          </div>
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
-            {/* <Link
+      <div className="sticky top-0 z-50 bg-[#1a1f2e]/95 backdrop-blur-sm">
+        <header className="border-b border-[#242935] sticky top-0 z-50 bg-[#1a1f2e]/95 backdrop-blur-sm">
+          <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2">
+                <Heart className="h-6 w-6 text-[#ff6b53]" />
+                <span className="text-xl font-bold">FirstRep</span>
+              </div>
+
+              <div className="hidden lg:block">
+                <ViewToggle />
+              </div>
+            </div>
+            <nav className="hidden lg:flex items-center gap-6 lg:gap-8">
+              {/* <Link
               href="#features"
               className="text-sm text-gray-300 hover:text-white transition-colors"
             >
               Features
             </Link> */}
-            <Link
-              href="#how-it-works"
-              className="text-sm text-gray-300 hover:text-white transition-colors"
-            >
-              How It Works
-            </Link>
-            <Link
-              href="#testimonials"
-              className="text-sm text-gray-300 hover:text-white transition-colors"
-            >
-              Testimonials
-            </Link>
-            <Link
-              href="#pricing"
-              className="text-sm text-gray-300 hover:text-white transition-colors"
-            >
-              Pricing
-            </Link>
-            <Link
-              href="#faq"
-              className="text-sm text-gray-300 hover:text-white transition-colors"
-            >
-              FAQ
-            </Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center gap-2">
+              <Link
+                href="#how-it-works"
+                className="text-sm text-gray-300 hover:text-white transition-colors"
+              >
+                How It Works
+              </Link>
+              <Link
+                href="#testimonials"
+                className="text-sm text-gray-300 hover:text-white transition-colors"
+              >
+                Testimonials
+              </Link>
+              <Link
+                href="#pricing"
+                className="text-sm text-gray-300 hover:text-white transition-colors"
+              >
+                Pricing
+              </Link>
+              <Link
+                href="#faq"
+                className="text-sm text-gray-300 hover:text-white transition-colors"
+              >
+                FAQ
+              </Link>
+            </nav>
+            <div className="flex items-center gap-4">
+              {/* <div className="hidden lg:flex items-center gap-2">
               <Link
                 href="https://app.firstrep.xyz/auth"
                 target="_blank"
@@ -620,16 +599,24 @@ export default function LandingPage() {
               >
                 Create Free Account
               </Link>
+            </div> */}
+              <MobileMenu />
             </div>
-            <MobileMenu />
+          </div>
+        </header>
+
+        {/* Mobile View Toggle */}
+        <div className="lg:hidden border-b border-[#242935] bg-[#1a1f2e]">
+          <div className="container mx-auto px-4 py-4">
+            <ViewToggle />
           </div>
         </div>
-      </header>
+      </div>
 
       {/* Hero Section */}
       <section className="py-16 md:py-24 animate-fade-in">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-slide-up">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 Fitness is about{" "}
@@ -645,7 +632,7 @@ export default function LandingPage() {
                 <p className="text-sm text-gray-400 font-medium">
                   Download FirstRep today:
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex gap-4">
                   <Link
                     href="https://apps.apple.com/app/id6748527380"
                     target="_blank"
@@ -716,7 +703,7 @@ export default function LandingPage() {
               of accountability and consistency.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8">
             <div
               className="bg-[#1a1f2e] p-6 rounded-xl transform transition-all duration-500 hover:scale-105 hover:shadow-xl animate-slide-up"
               style={{ animationDelay: "100ms" }}
@@ -776,7 +763,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid lg:grid-cols-3 gap-8 mb-16">
             <div
               className="bg-[#242935] p-6 rounded-xl transform transition-all duration-500 hover:scale-105 hover:shadow-xl animate-slide-up"
               style={{ animationDelay: "100ms" }}
@@ -820,8 +807,8 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-16 items-center mb-16">
-            <div className="order-2 md:order-1 animate-slide-up">
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+            <div className="order-2 lg:order-1 animate-slide-up">
               <div className="space-y-8">
                 <div className="flex gap-4 transform transition-all duration-500 hover:translate-x-2">
                   <div className="w-12 h-12 bg-[#ff6b53]/20 rounded-full flex items-center justify-center flex-shrink-0">
@@ -865,12 +852,12 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-            <div className="order-1 md:order-2 relative rounded-xl overflow-hidden h-[750px] flex justify-center animate-slide-in-right">
+            <div className="order-1 lg:order-2 relative rounded-xl overflow-hidden h-[750px] flex justify-center animate-slide-in-right">
               <AutoCarousel images={buddyMockupImages} type="mockup" />
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* <div className="relative rounded-xl overflow-hidden h-full flex justify-center shadow-sm animate-slide-in-left">
               <AutoCarousel images={progressMockupImages} type="mockup" />
             </div> */}
@@ -1022,7 +1009,7 @@ export default function LandingPage() {
       <section className="py-16 md:py-24 animate-fade-in">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-[#242935] p-8 md:p-12 rounded-2xl transform transition-all duration-700 hover:shadow-2xl animate-slide-up">
-            <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="flex flex-col lg:flex-row gap-8 items-center">
               <div className="w-40 h-40 rounded-full bg-[#ff6b53]/20 flex items-center justify-center flex-shrink-0">
                 {/* <Heart className="h-12 w-12 text-[#ff6b53]" /> */}
                 <Image
@@ -1173,7 +1160,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div
               className="bg-[#242935] p-8 rounded-xl border border-[#333] transform transition-all duration-500 hover:scale-105 hover:shadow-xl animate-slide-up"
               style={{ animationDelay: "100ms" }}

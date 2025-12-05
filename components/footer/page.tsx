@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Heart, Link } from "lucide-react";
+
 const Footer = () => {
   return (
     <footer className="py-12 border-t border-[#242935] animate-fade-in">
