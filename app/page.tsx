@@ -34,9 +34,11 @@ import "../styles/styles.css";
 import TestimonialSlideshow from "@/components/testimonial-slideshow/page";
 import { useState } from "react";
 import Footer from "@/components/footer/page";
+import ContactModal from "@/components/contact-modal"; // Assuming ContactModal is in this path
 
 export default function LandingPage() {
   const [view, setView] = useState<"individuals" | "gyms">("individuals");
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   const heroImages = [
     {
@@ -213,18 +215,18 @@ export default function LandingPage() {
               </div>
               <div className="flex items-center gap-4">
                 <div className="flex-col sm:flex-row gap-4 hidden lg:flex">
-                  <Link
-                    href="https://admin.firstrep.xyz"
+                  <button
+                    onClick={() => setIsContactModalOpen(true)}
                     className="flex items-center justify-center h-9 px-5 bg-gradient-to-r from-[#ff6b53] to-[#ff6b53]/90 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:from-[#ff6b53]/90 hover:to-[#ff6b53]/80 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#ff6b53]/20"
                   >
                     Start Free Trial
-                  </Link>
-                  <Link
-                    href="mailto:koya@firstrep.xyz"
+                  </button>
+                  <button
+                    onClick={() => setIsContactModalOpen(true)}
                     className="flex items-center justify-center h-9 px-5 bg-transparent border border-[#ff6b53]/30 text-[#ff6b53] rounded-lg text-sm font-medium transition-all duration-300 hover:bg-[#ff6b53]/10 hover:border-[#ff6b53]/50 hover:scale-[1.02]"
                   >
                     Talk to Our Team
-                  </Link>
+                  </button>
                 </div>
                 {/* <MobileMenu /> */}
               </div>
@@ -258,18 +260,18 @@ export default function LandingPage() {
                     Get started today:
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <Link
-                      href="https://admin.firstrep.xyz"
+                    <button
+                      onClick={() => setIsContactModalOpen(true)}
                       className="flex items-center justify-center h-12 px-8 bg-gradient-to-r from-[#ff6b53] to-[#ff6b53]/90 text-white rounded-lg text-base font-medium transition-all duration-300 hover:from-[#ff6b53]/90 hover:to-[#ff6b53]/80 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#ff6b53]/20"
                     >
                       Start Free Trial
-                    </Link>
-                    <Link
-                      href="mailto:koya@firstrep.xyz"
+                    </button>
+                    <button
+                      onClick={() => setIsContactModalOpen(true)}
                       className="flex items-center justify-center h-12 px-8 bg-transparent border border-[#ff6b53]/30 text-[#ff6b53] rounded-lg font-medium transition-all duration-300 hover:bg-[#ff6b53]/10 hover:border-[#ff6b53]/50 hover:scale-[1.02]"
                     >
                       Talk to Our Team
-                    </Link>
+                    </button>
                   </div>
                   <p className="text-xs text-gray-400">
                     2 weeks free trial • No credit card required
@@ -513,24 +515,29 @@ export default function LandingPage() {
                 and grow their business.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="https://admin.firstrep.xyz"
+                <button
+                  onClick={() => setIsContactModalOpen(true)}
                   className="flex items-center justify-center h-12 px-8 bg-gradient-to-r from-[#ff6b53] to-[#ff6b53]/90 text-white rounded-lg font-medium transition-all duration-300 hover:from-[#ff6b53]/90 hover:to-[#ff6b53]/80 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#ff6b53]/20"
                 >
                   Start Free Trial
-                </Link>
-                <Link
-                  href="mailto:koya@firstrep.xyz"
+                </button>
+                <button
+                  onClick={() => setIsContactModalOpen(true)}
                   className="flex items-center justify-center h-12 px-8 bg-transparent border border-[#ff6b53]/30 text-[#ff6b53] rounded-lg font-medium transition-all duration-300 hover:bg-[#ff6b53]/10 hover:border-[#ff6b53]/50 hover:scale-[1.02]"
                 >
                   Talk to Our Team
-                </Link>
+                </button>
               </div>
             </div>
           </div>
         </section>
 
         <Footer />
+
+        <ContactModal
+          isOpen={isContactModalOpen}
+          onClose={() => setIsContactModalOpen(false)}
+        />
       </div>
     );
   }
