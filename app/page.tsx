@@ -654,7 +654,7 @@ export default function LandingPage() {
                     />
                   </Link>
                   <Link
-                    href="https://koya.kit.com/bcca878a1d"
+                    href="https://play.google.com/store/apps/details?id=xyz.firstrep.firstrep&hl=en"
                     target="_blank"
                     className="block transform transition duration-300 ease-in-out hover:scale-105 hover:translate-y-[-2px] hover:shadow-lg"
                   >
@@ -1395,7 +1395,7 @@ export default function LandingPage() {
                 />
               </Link>
               <Link
-                href="https://koya.kit.com/bcca878a1d"
+                href="https://play.google.com/store/apps/details?id=xyz.firstrep.firstrep&hl=en"
                 target="_blank"
                 className="block transform transition duration-300 ease-in-out hover:scale-105 hover:translate-y-[-2px] hover:shadow-lg"
               >
