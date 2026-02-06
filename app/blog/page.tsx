@@ -1,83 +1,73 @@
-"use client";
-
 import React from "react";
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
-import { Heart, Calendar, User, ArrowRight, Mail } from "lucide-react";
+import { Heart, Calendar, ArrowRight, Mail } from "lucide-react";
 
-const blogPosts = [
-  {
-    id: 1,
-    slug: "consistency-over-perfection",
-    title:
-      "Consistency Over Perfection: Why Your First Rep Matters More Than Your Last",
-    excerpt:
-      "The fitness industry obsesses over perfect form, perfect diets, and perfect routines. But the real transformation happens when you show up, even when it's messy.",
-    category: "People Stories",
-    author: {
-      name: "Koya",
-      role: "Founder",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop",
-    },
-    date: "January 15, 2025",
-    image:
-      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop",
-    readTime: "6 min read",
-  },
-  {
-    id: 2,
-    slug: "the-accountability-paradox",
-    title:
-      "The Accountability Paradox: Why Buddy Systems Work (And How to Get One)",
-    excerpt:
-      "Being accountable to yourself is hard. Being accountable to someone else? That's where the magic happens. We break down why buddy systems create unstoppable consistency.",
-    category: "Systems & Tactics",
-    author: {
-      name: "Koya",
-      role: "Founder",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop",
-    },
-    date: "December 28, 2024",
-    image:
-      "https://images.unsplash.com/photo-1552091160-c1fb51014e3d?q=80&w=1200&auto=format&fit=crop",
-    readTime: "8 min read",
-  },
-  {
-    id: 3,
-    slug: "field-notes-30-day-challenge",
-    title: "Field Notes: What Happens When You Work Out for 30 Days Straight",
-    excerpt:
-      "I went all-in for 30 days. Spoiler: It wasn't about the workouts. It was about what I learned about myself, my habits, and what real consistency looks like.",
-    category: "Field Notes",
-    author: {
-      name: "Koya",
-      role: "Founder",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop",
-    },
-    date: "December 10, 2024",
-    image:
-      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop",
-    readTime: "7 min read",
-  },
-];
+import NewsletterForm from "@/components/newsletter-form";
+import { client } from "@/sanity/client";
+import { POSTS_QUERY } from "@/sanity/queries";
+import { urlFor } from "@/sanity/image";
 
-export default function BlogPage() {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
+type Author = {
+  name?: string;
+  role?: string;
+  bio?: string;
+  avatar?: unknown;
+};
 
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setEmail("");
-      setTimeout(() => setSubscribed(false), 3000);
+type Post = {
+  _id: string;
+  slug?: string;
+  title?: string;
+  excerpt?: string;
+  category?: string;
+  author?: Author | null;
+  publishedAt?: string;
+  readTime?: string | number;
+  image?: unknown;
+  bodyText?: string;
+};
+
+function formatDate(date?: string) {
+  if (!date) return "—";
+  const parsed = new Date(date);
+  if (Number.isNaN(parsed.getTime())) return "—";
+  return new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(parsed);
+}
+
+function formatReadTime(readTime?: string | number, bodyText?: string) {
+  if (typeof readTime === "string" && readTime.trim().length > 0) {
+    return readTime;
+  }
+  if (typeof readTime === "number" && Number.isFinite(readTime)) {
+    return `${readTime} min read`;
+  }
+  if (bodyText) {
+    const words = bodyText.trim().split(/\s+/).filter(Boolean).length;
+    if (words > 0) {
+      const minutes = Math.max(1, Math.round(words / 200));
+      return `${minutes} min read`;
     }
-  };
+  }
+  return "—";
+}
+
+function resolveImageUrl(source?: unknown, width = 1200, height = 700) {
+  if (!source) return "/placeholder.svg";
+  try {
+    return urlFor(source).width(width).height(height).url();
+  } catch {
+    return "/placeholder.svg";
+  }
+}
+
+export default async function BlogPage() {
+  const posts = await client.fetch<Post[]>(POSTS_QUERY);
 
   return (
     <div className="min-h-screen bg-[#1a1f2e] text-white">
@@ -135,30 +125,11 @@ export default function BlogPage() {
                   </p>
                 </div>
               </div>
-              <form
-                onSubmit={handleSubscribe}
+              <NewsletterForm
                 className="flex flex-col sm:flex-row gap-3"
-              >
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 bg-[#242935] border border-[#333] rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#ff6b53] transition-colors"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="bg-gradient-to-r from-[#ff6b53] to-[#ff6b53]/90 text-white rounded-lg px-6 py-3 font-medium transition-all hover:from-[#ff6b53]/90 hover:to-[#ff6b53]/80 hover:shadow-lg hover:shadow-[#ff6b53]/20"
-                >
-                  Subscribe
-                </button>
-              </form>
-              {subscribed && (
-                <p className="text-[#ff6b53] text-sm mt-3">
-                  Thanks! Check your email to confirm.
-                </p>
-              )}
+                inputClassName="flex-1 bg-[#242935] border border-[#333] rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#ff6b53] transition-colors"
+                buttonClassName="bg-gradient-to-r from-[#ff6b53] to-[#ff6b53]/90 text-white rounded-lg px-6 py-3 font-medium transition-all hover:from-[#ff6b53]/90 hover:to-[#ff6b53]/80 hover:shadow-lg hover:shadow-[#ff6b53]/20"
+              />
             </div>
           </div>
         </div>
@@ -168,9 +139,9 @@ export default function BlogPage() {
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
+            {posts.map((post, index) => (
               <Link
-                key={post.id}
+                key={post._id}
                 href={`/blog/${post.slug}`}
                 className="group cursor-pointer animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
@@ -179,15 +150,15 @@ export default function BlogPage() {
                   {/* Image */}
                   <div className="relative h-56 overflow-hidden bg-[#1a1f2e]">
                     <Image
-                      src={post.image || "/placeholder.svg"}
-                      alt={post.title}
+                      src={resolveImageUrl(post.image)}
+                      alt={post.title ?? "Blog post"}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1a1f2e] to-transparent opacity-60"></div>
                     <div className="absolute bottom-4 left-4">
                       <span className="inline-block px-3 py-1 bg-[#ff6b53]/20 text-[#ff6b53] rounded-full text-xs font-medium">
-                        {post.category}
+                        {post.category ?? "General"}
                       </span>
                     </div>
                   </div>
@@ -195,37 +166,39 @@ export default function BlogPage() {
                   {/* Content */}
                   <div className="flex-1 p-6 flex flex-col">
                     <h2 className="text-xl font-bold mb-3 group-hover:text-[#ff6b53] transition-colors line-clamp-2">
-                      {post.title}
+                      {post.title ?? "Untitled"}
                     </h2>
                     <p className="text-gray-400 text-sm mb-4 line-clamp-2 flex-1">
-                      {post.excerpt}
+                      {post.excerpt ?? ""}
                     </p>
 
                     {/* Meta */}
                     <div className="space-y-3 pt-4 border-t border-[#333]">
                       <div className="flex items-center gap-3">
                         <Image
-                          src={post.author.image || "/placeholder.svg"}
-                          alt={post.author.name}
+                          src={resolveImageUrl(post.author?.avatar, 96, 96)}
+                          alt={post.author?.name ?? "Author"}
                           width={32}
                           height={32}
                           className="w-8 h-8 rounded-full object-cover"
                         />
                         <div className="flex-1 min-w-0">
                           <p className="text-sm font-medium text-white">
-                            {post.author.name}
+                            {post.author?.name ?? "FirstRep"}
                           </p>
                           <p className="text-xs text-gray-400">
-                            {post.author.role}
+                            {post.author?.role ?? "Contributor"}
                           </p>
                         </div>
                       </div>
                       <div className="flex items-center justify-between text-xs text-gray-400">
                         <span className="flex items-center gap-1">
                           <Calendar className="h-3 w-3" />
-                          {post.date}
+                          {formatDate(post.publishedAt)}
                         </span>
-                        <span>{post.readTime}</span>
+                        <span>
+                          {formatReadTime(post.readTime, post.bodyText)}
+                        </span>
                       </div>
                     </div>
 
@@ -250,25 +223,11 @@ export default function BlogPage() {
             New articles published monthly. Subscribe to get them delivered to
             your inbox.
           </p>
-          <form
-            onSubmit={handleSubscribe}
+          <NewsletterForm
             className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-          >
-            <input
-              type="email"
-              placeholder="your@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 bg-[#1a1f2e] border border-[#333] rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#ff6b53] transition-colors"
-              required
-            />
-            <button
-              type="submit"
-              className="bg-gradient-to-r from-[#ff6b53] to-[#ff6b53]/90 text-white rounded-lg px-6 py-3 font-medium transition-all hover:from-[#ff6b53]/90 hover:to-[#ff6b53]/80 hover:shadow-lg hover:shadow-[#ff6b53]/20"
-            >
-              Subscribe
-            </button>
-          </form>
+            inputClassName="flex-1 bg-[#1a1f2e] border border-[#333] rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#ff6b53] transition-colors"
+            buttonClassName="bg-gradient-to-r from-[#ff6b53] to-[#ff6b53]/90 text-white rounded-lg px-6 py-3 font-medium transition-all hover:from-[#ff6b53]/90 hover:to-[#ff6b53]/80 hover:shadow-lg hover:shadow-[#ff6b53]/20"
+          />
         </div>
       </section>
 
@@ -276,7 +235,7 @@ export default function BlogPage() {
       <footer className="border-t border-[#242935] py-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-gray-400 text-sm">
-            <p>&copy; 2025 FirstRep. All rights reserved.</p>
+            <p>&copy; 2026 FirstRep. All rights reserved.</p>
             <div className="flex gap-6">
               <Link
                 href="/privacy"
