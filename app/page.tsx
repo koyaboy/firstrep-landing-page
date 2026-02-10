@@ -137,6 +137,13 @@ export default function LandingPage() {
               >
                 FAQ
               </Link>
+              <Link
+                href="/blog"
+                className="text-sm text-gray-300 hover:text-white transition-colors py-2 border-b border-[#242935]"
+                onClick={() => setIsOpen(false)}
+              >
+                The Rep Report
+              </Link>
 
               {/* <div className="mt-6 pt-4 border-t border-[#242935]">
                 <div className="space-y-3">
