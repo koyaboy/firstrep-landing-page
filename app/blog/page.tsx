@@ -98,7 +98,7 @@ export default async function BlogPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 md:py-28 border-b border-[#242935]">
+      {/* <section className="py-20 md:py-28 border-b border-[#242935]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
@@ -111,6 +111,41 @@ export default async function BlogPage() {
             <p className="text-sm text-gray-400">
               Published bi-weekly • Written by the FirstRep team and community
             </p>
+          </div>
+        </div>
+      </section> */}
+
+      {/* Hero Section With Image */}
+      <section className="relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 h-full w-full">
+          <Image
+            src="/images/hero-blog.jpg"
+            alt="The Rep Report Hero"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1a1f2e]/50 via-[#1a1f2e]/70 to-[#1a1f2e]"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative py-24 md:py-40 border-b border-[#242935]">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl flex flex-col items-start justify-end min-h-96">
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
+                The Rep Report
+              </h1>
+              <p className="text-xl text-gray-300 mb-4 leading-relaxed">
+                Stories, systems, and insights from the frontlines of
+                consistency. The intel you need to turn fitness into a
+                lifestyle.
+              </p>
+              <p className="text-sm text-gray-400">
+                Published bi-weekly • Written by the FirstRep team and community
+              </p>
+            </div>
           </div>
         </div>
       </section>
